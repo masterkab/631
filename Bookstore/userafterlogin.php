@@ -1,7 +1,7 @@
 <?php
 include 'dbconnect.php';
 session_start ();
-$_SESSION['usern']='';
+
 $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=$r_lname=$r_pass=$r_phone=$r_rpass=$r_state=$r_zip='';
 ?>
 <html>
@@ -10,7 +10,14 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 	<link rel="stylesheet" type="text/css"	href="css/bookstore.css">
 	
 	<script type="text/javascript">
-				
+		function addToCart(element){
+			
+			<?php 
+				echo'Tim code';
+			?>
+		}					
+								
+							
 	</script>
 </head>
 <body>
@@ -19,16 +26,20 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 		<div class="">
 			<h3>Tim Bookstore</h3>
 		</div>
+		<div id="basket">
+			<form class="" action="" method="post" id="basket_form">
+				<label>Cart=</label> 
+				<output type="text" id="cart" name="cartn" ></output></br>
+				<button type="submit" class="" name="checkout">Checkout</button>
+			</form>
 		
-		<div id="login">
+		</div>
+		<div id="logout">
 			<form class="" action="" method="post" id="login">
-				<label>Username:</label> 
-				<input type="text" id="login_id" placeholder="Enter username" name="login_user"> </br>
-				<label>Password:</label> 
-				<input type="password" name="login_pass" id="login_pwd" placeholder="Enter password"></br>
-				<button type="submit" class="" name="login">Login</button>
-				<button type="submit" class="" name="register">Register</button>
-				<button type="submit" class="" name="admin">Admin</button>
+				<label>Welcome! <?php $username=$_SESSION['usern'];echo $username; ?></label></br>
+				<button type="submit" class="" name="logout">Logout</button>
+				<button type="submit" class="" name="update_p">Update profile</button>
+				<button type="submit" class="" name="past_o">Past orders</button>
 			</form>
 		</div>
 		
@@ -104,7 +115,13 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 						  <td width="150px">' . $row_array ['supplier'] . '</td>
 						  <td width="150px">' . $row_array ['price'] . '</td>
 					      </tr>';
-						
+					if($_SESSION['usern']==''){	  
+						echo '<td><button name="addcart" align="right" type="button" disabled class="addtocart"
+						id='.$id_counter.' onclick="addToCart(this.id);">Add To Cart</button></td>';
+					}else{
+						echo '<td><button name="addcart" align="right" type="button" class="addtocart"
+						id='.$id_counter.' onclick="addToCart(this.id);">Add To Cart</button></td>';
+					}	
 					$id_counter+=1;
 				}
 				echo'</tbody> </table>';
@@ -159,41 +176,27 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 			echo "<script type='text/javascript'>alert('Please enter all data');</script>";
 		}
 	}
-	//if login press
+	//if logout press
 	//----------------------------------------------------------------------------------------------------------	
-	else if(isset ( $_POST ['login'] )){
-		if(!empty ($_POST['login_user'])&&!empty ($_POST['login_pass'])){
-			$username_check=$_POST['login_user'];
-			$pass_check=$_POST['login_pass'];
-			
-			$query_u="SELECT `username`, `passwdhash` FROM `users` WHERE username='$username_check'";			
-			$resuilt_u=mysqli_query($con,$query_u);
-			printSqlErr($resuilt_u,$con);			
-			$num_rows_u=mysqli_num_rows($resuilt_u);
-			
-			//print header of tabel
-			if ($num_rows_u>0){
-				while($row_array_u=mysqli_fetch_array($resuilt_u)){
-					if ($pass_check==$row_array_u['passwdhash']){
-						$_SESSION['usern']=$row_array_u['username'];
-						header ( "Location:userafterlogin.php" );
-						
-					}else{
-						echo"<script type='text/javascript'>alert('Incorect password');</script>";
-					}
-				}
-			}else{
-				echo "<script type='text/javascript'>alert('User not found');</script>";
-			}
-		}else{
-			echo "<script type='text/javascript'>alert('Please enter your username and password');</script>";
-		}
+	else if(isset ( $_POST ['logout'] )){
+		$_SESSION['usern']='';
+		header ( "Location:index.php" );
 		
 	}
-	//if admin press
+	//if past order press
 	//----------------------------------------------------------------------------------------------------------	
-	else if(isset ( $_POST ['admin'] )){
-		header ( "Location:admin.php" );
+	else if(isset ( $_POST ['past_o'] )){
+		echo'Tim code';
+	}
+	//if past order press
+	//----------------------------------------------------------------------------------------------------------	
+	else if(isset ( $_POST ['update_p'] )){
+		echo'Tim code';
+	}
+	//if past order press
+	//----------------------------------------------------------------------------------------------------------	
+	else if(isset ( $_POST ['checkout'] )){
+		echo'Tim code';
 	}
 	//----------------------------------------------------------
 	//print error for sql
