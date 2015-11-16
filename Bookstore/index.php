@@ -248,7 +248,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 			  <label>Card number:</label> 
 			  <input type="text" id="" placeholder="16 digits" name="register_ccnumber"> </br>
 			  <label>Expiration date:</label> 
-			  <input type="text" id="" placeholder="MM-Year" name="register_ccexpdate"> </br>
+			  <input type="text" id="" placeholder="MMYYYY" name="register_ccexpdate"> </br>
 			  <button type="submit" class="" name="register_complete" onclick="insertUser">Register</button>
 			</form> 
 			
