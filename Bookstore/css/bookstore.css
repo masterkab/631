@@ -30,3 +30,8 @@
     //float:left;
     
 }
+#cart{
+    background-color: aliceblue;
+    border-style: solid;
+    white-space: pre;
+}

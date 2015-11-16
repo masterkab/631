@@ -139,25 +139,34 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 		
 		if(!empty($r_user)&&!empty($r_lname)&&!empty($r_fname)&&!empty($r_address)&&!empty($r_city)&&!empty($r_state)&&
 			!empty($r_zip)&&!empty($r_phone)&&!empty($r_pass)&&!empty($r_cctype)&&!empty($r_ccnumber)&&!empty($r_ccexpdate)&&
-			!empty($r_rpass)){	
-			if ($_POST['register_pass']== $_POST['register_rpass']){
+			!empty($r_rpass)){
+			$check_user_already_register="SELECT `username`, `email` FROM `users` WHERE username='$r_user' OR email='$r_email'";
+			$resuilt_already=mysqli_query($con,$check_user_already_register);
+			printSqlErr($resuilt_already,$con);			
+			$num_rows_c=mysqli_num_rows($resuilt_already);
 			
+			if ($num_rows_c<1){
+				
+				if ($_POST['register_pass']== $_POST['register_rpass']){
 			
-				$new_user="INSERT INTO `users`(`username`, `lastname`, `firstname`, `address`, `city`,
-				`state`, `zip`, `telephone`, `email`, `passwdhash`, `cctype`, `ccnumber`, `ccexpdate`, `isenabled`)
-				VALUES ('$r_user','$r_lname','$r_fname','$r_address','$r_city','$r_state','$r_zip','$r_phone','$r_email',
-				'$r_pass','$r_cctype',$r_ccnumber,$r_ccexpdate,'y')";
+					$new_user="INSERT INTO `users`(`username`, `lastname`, `firstname`, `address`, `city`,
+					`state`, `zip`, `telephone`, `email`, `passwdhash`, `cctype`, `ccnumber`, `ccexpdate`, `isenabled`)
+					VALUES ('$r_user','$r_lname','$r_fname','$r_address','$r_city','$r_state','$r_zip','$r_phone','$r_email',
+					'$r_pass','$r_cctype',$r_ccnumber,$r_ccexpdate,'y')";
 			
-				$insert_new_user = mysqli_query ($con, $new_user);
-				printSqlErr($insert_new_user,$con);
+					$insert_new_user = mysqli_query ($con, $new_user);
+					printSqlErr($insert_new_user,$con);
+				}
+				else{
+					echo "<script type='text/javascript'>alert('Password not matched');</script>";
+				}
+			}else{
+				echo "<script type='text/javascript'>alert('User or email already registred');</script>";
 			}
-			else{
-				echo "<script type='text/javascript'>alert('Password not matched');</script>";
-			}
-		}
-		else{
+		}else{
 			echo "<script type='text/javascript'>alert('Please enter all data');</script>";
 		}
+		
 	}
 	//if login press
 	//----------------------------------------------------------------------------------------------------------	
