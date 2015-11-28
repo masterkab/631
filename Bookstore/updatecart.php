@@ -3,8 +3,9 @@ include 'dbconnect.php';
 session_start();
 
 if ($_SESSION['usern'] != '') { // Is a user logged in?
-	if(isset($_POST['isbn']) && !empty($_POST['isbn']) &&
-	  (isset($_POST['quantity']) && !empty($_POST['quantity']))) {
+	if((isset($_POST['isbn']) && !empty($_POST['isbn'])) &&
+	  (isset($_POST['itemno']) && !empty($_POST['itemno'])) &&
+	  (isset($_POST['quantity']))) {
 		$newQty=$_POST['quantity'];
 		// We need the quantity of the book
 		$sqlStmt="SELECT quantity,title FROM books WHERE isbn='" .
@@ -16,7 +17,7 @@ if ($_SESSION['usern'] != '') { // Is a user logged in?
 			if($inStock >= $newQty) { // There must be enough books
 				// Update the book in the cart.
 				$myPrice=$mySel["price"];
-				$sqlStr="UPDATE carts SET itemqty='". $_POST["quantity"] . "' WHERE username='" . $_SESSION['usern'] . "' AND itemisbn='" . $_POST["isbn"] ."'";
+				$sqlStr="UPDATE carts SET itemqty='". $_POST["quantity"] . "' WHERE username='" . $_SESSION['usern'] . "' AND itemno='" . $_POST["itemno"] ."'";
 				$sqlStmt=$con->prepare($sqlStr);
 				if($result=mysqli_stmt_execute($sqlStmt)==1) {
 					$retVal=true;
