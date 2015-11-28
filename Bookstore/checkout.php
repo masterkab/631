@@ -90,7 +90,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 					echo '<td width="150px">'.$row_array['isbn'].'</td>';
 					echo '<td width="150px">'.$row_array['pubyear'].'</td>';
 					echo '<td width="150px">'.$row_array['price'].'</td>';
-					echo '<td width="150px"><input type="text" id="item'.$row_array['itemno'].'" name="qty" onchange="updateCart('.$row_array['isbn'].',this.id)" value='.$row_array['itemqty'].'></td></tr>';
+					echo '<td width="150px"><input type="text" id="item'.$row_array['itemno'].'" name="qty" onchange="updateCart('.$row_array['isbn'].','.$row_array['itemno'].',this.id)" value='.$row_array['itemqty'].'></td></tr>';
 				}
 			}
 			if(!$foundItemInCart) { // Things were found, but qty=0
@@ -204,7 +204,6 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 				$curOrderNum."','".$_SESSION['usern']."','".
 				$orderDate."','C','".$orderArray['orderitems'].
 				"','".$orderArray['ordertotal']."')";
-				var_dump($sqlStmt);
 				$sqlCmd=$con->prepare($sqlStmt);
 				if($result=mysqli_stmt_execute($sqlCmd)) {
 					foreach ($items as &$item) {
