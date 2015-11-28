@@ -1,6 +1,6 @@
-function updateCart(isbn,id){
+function updateCart(isbn,itemno,eid){
 	// This calls the addtocart.php function to add the selected item to the cart.
-	var quantity=document.getElementById(id).value;
+	var quantity=document.getElementById(eid).value;
 	var xhtml=new XMLHttpRequest();
 	if(!(isNaN(quantity))&&quantity>=0) {
 		xhtml.open("POST","updatecart.php",true);
@@ -10,13 +10,14 @@ function updateCart(isbn,id){
 			if(xhtml.readyState==4 && xhtml.status == 200) {
 				var myResponse=(xhtml.responseText).split(':');
 				if(myResponse[0]=='true') {
-					element.disabled=true;
 				} 
 				// Display the result.  This is a kludge.  Fix.
 				alert(myResponse[1]);
 			}
 		}
-		xhtml.send("isbn="+isbn+"&quantity="+quantity);
+		xhtml.send("isbn="+isbn+"&itemno="+itemno+"&quantity="+quantity);
+	} else {
+		alert('Fails to evaluate true');
 	}
 }
 
