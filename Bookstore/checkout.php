@@ -1,5 +1,6 @@
 <?php
 include 'dbconnect.php';
+include 'common.php';
 session_start ();
 if ($_SESSION ['usern'] == "") {
 	header ( "Location:index.php" );
@@ -23,7 +24,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 		<div id="basket">
 			<form class="" action="" method="post" id="basket_form">
 				<label>Cart=</label> 
-				<output type="text" id="cart" name="cartn" >      </output></br>
+				<output type="text" id="cart" name="cartn" ><?=getCountOfItemsInBasket($con)?> </output></br>
 				<button type="submit" class="" name="checkout">Checkout</button>
 			</form>
 		
@@ -42,7 +43,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 	
 	<div id="search">
 		<h3>Search Book</h3>
-		<form action="" method="post">
+		<form action="userafterlogin.php" method="post">
 				<div  class="">
 					<input id="search_input" type="text" class="" id="" name="tosearch" placeholder="search book">
 				</div>				
