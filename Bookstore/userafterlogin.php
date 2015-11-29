@@ -1,5 +1,6 @@
 <?php
 include 'dbconnect.php';
+include 'common.php';
 session_start ();
 if ($_SESSION ['usern'] == "") {
 	header ( "Location:index.php" );
@@ -10,17 +11,9 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 <head>
 	<title>Tim Bookstore</title>
 	<link rel="stylesheet" type="text/css"	href="css/bookstore.css">
-	
-	<script type="text/javascript">
-		function addToCart(element){
-			
-			<?php 
-				echo'Tim code';
-			?>
-		}					
-								
-							
-	</script>
+	<!-- Added 11/21/15 by Tim -->
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script> <!-- import Jquery for AJAX -->
+	<script type="text/javascript" src="addtocart.js"> </script>
 </head>
 <body>
 	
@@ -29,9 +22,9 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 			<h3>Tim Bookstore</h3>
 		</div>
 		<div id="basket">
-			<form class="" action="" method="post" id="basket_form">
+			<form class="" action="checkout.php" method="post" id="basket_form">
 				<label>Cart=</label> 
-				<output type="text" id="cart" name="cartn" >      </output></br>
+				<output type="text" id="cart" name="cartn" > <?=getCountOfItemsInBasket($con)?> </output></br>
 				<button type="submit" class="" name="checkout">Checkout</button>
 			</form>
 		
@@ -69,7 +62,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 	
 	//connect to DB
 	//----------------------------------------------------------------------------------------------------------
-	$con = mysqli_connect('localhost','root','',"bookstore");
+	$con = mysqli_connect('localhost','root','N0Fun4U',"bookstore");
 		if(mysqli_connect_errno()){
             print"Connect faild: " . mysqli_connect_error();
             exit();
@@ -118,8 +111,10 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 						  <td width="150px">' . $row_array ['price'] . '</td>
 					      </tr>';
 					
-						echo '<td><button name="addcart" align="right" type="button" class="addtocart"
-						id='.$id_counter.' onclick="addToCart(this.id);">Add To Cart</button></td>';
+						echo '<td><button name="addcart" align="right" type="button" class="addtocart" id='.$id_counter.' onclick="addToCart(';
+	// Added 11/21/15 by Tim 
+						echo $row_array['isbn'];
+						echo ',this.id);">Add To Cart</button></td>';
 						
 					$id_counter+=1;
 				}
@@ -147,7 +142,8 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 	//if past order press
 	//----------------------------------------------------------------------------------------------------------	
 	else if(isset ( $_POST ['past_o'] )){
-		echo'Tim code';
+//		echo'Tim code';
+		header("Location:show_history.php");
 	}
 	//if past order press
 	//----------------------------------------------------------------------------------------------------------	
