@@ -2,6 +2,7 @@
 include 'dbconnect.php';
 session_start();
 
+$nextItemNo=0;
 if ($_SESSION['usern'] != '') { // Is a user logged in?
 	if(isset($_POST['add']) && !empty($_POST['add'])) {
 		$sqlStmt="SELECT Count(*) FROM carts WHERE username='" .
@@ -59,6 +60,6 @@ if ($_SESSION['usern'] != '') { // Is a user logged in?
 // Now, send back the result of the operation.
 header("Content-type: text/plain");
 
-echo "$retVal:$errMsg";
+echo "$retVal:$errMsg:$nextItemNo";
 
 ?>
