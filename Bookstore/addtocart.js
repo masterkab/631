@@ -14,6 +14,9 @@ function addToCart(isbn,element){
 			} 
 			// Display the result.  This is a kludge.  Fix.
 			alert(myResponse[1]);
+			myCartN=document.getElementById("cart");
+			// Update the current count of items in the shopping basket
+			myCartN.value=myResponse[2];
 		}
 	}
 	xhtml.send("add="+isbn);
