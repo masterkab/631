@@ -69,13 +69,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 		
 <?php
 	
-	//connect to DB
-	//----------------------------------------------------------------------------------------------------------
-	$con = mysqli_connect('localhost','root','',"bookstore");
-		if(mysqli_connect_errno()){
-            print"Connect faild: " . mysqli_connect_error();
-            exit();
-        }
+	
 	//if search engin press
 	//----------------------------------------------------------------------------------------------------------
 	if (isset ( $_POST ['search_u'] )) {

@@ -35,6 +35,7 @@ if ($_SESSION['usern'] != '') { // Is a user logged in?
 					// Something went wrong here.
 					$retVal=false;
 					$errMsg='Error on INSERT.';
+					error_log("Query: ".$sqlStmt);
 				}
 			} else {
 				// No books in stock, so we don't try to add.
