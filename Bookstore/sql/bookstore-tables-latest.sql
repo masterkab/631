@@ -17,13 +17,13 @@ create table books (
 	title		char(80) not null,
 	author		char(80) not null,
 	subject		char(80) not null,
-	pubyear		numeric(4,0),
+	pubyear		year,
 	description	char(255),
 	imageurl	char(128),
 	quantity	int not null,
 	supplier	char(40),
 	price		numeric(10,2) not null,
-	buyerdate	decimal(8,0)
+	buyerdate	date
 );
 
 drop table if exists users;
@@ -71,7 +71,7 @@ Value for order status: o=open, c=completed, x=cancelled */
 create table orders (
 	ordernumber	int unique not null primary key,
 	username	char(16) not null,
-	orderdate	numeric(8) not null,
+	orderdate	date not null,
 	ordsecnum	numeric(4),
 	orderstatus	char(1) not null, /* O, C, or X */
 	orderitems	int not null,
@@ -115,13 +115,3 @@ create table admins (
     passwdhash text not null
 );
 
-/* Populate initial data */
-INSERT INTO admins (username,passwdhash) VALUES('admin','$6$.WJ.cxDM$aKOoFZZNZqWPj1B4J8hxfNxkgx1S5u9mcghKyM2S.gABcwGNY8.YOUugIKZGWRXXj4OyYbLAVLkNd.ZRUwjSB0');
-INSERT INTO users (username,lastname,firstname,address,city,state,zip,telephone,email,passwdhash,cctype,ccnumber,ccexpdate,isenabled)  VALUES('whilson','Hilson','Walter','3829 N. Sputnik St.','Moscow','ID','83844','2085551212','nota.real@email.com','$6$pAzzRj8k$msQhxbBEpyH7pnnZ6KwG8w8oKdEEi4p1U8zlDmvD2u9Z2KNWtK.sheO0VBk03yd0ZH/ZnMJjmzDrWuy4qqSGH0','V',3912394029381003,102016,'Y');
-INSERT INTO users (username,lastname,firstname,address,city,state,zip,telephone,email,passwdhash,cctype,ccnumber,ccexpdate,isenabled)  VALUES('mcpherson','McPherson','Alan','499 N. Main Street','Main Street','MI','48377','7345551212','fakeperson@nowhere.com','$6$neKpXgnt$1eqWZ3l6ayyYBwB9VntAZL2pWdBqX2WdP2tK/d96GXBpr13kecBNaAD6ri7zWtVigs7cTrxBg9wwjXiXm1uOw.','M',3928034918827399,122017,'Y');
-INSERT INTO users (username,lastname,firstname,address,city,state,zip,telephone,email,passwdhash,cctype,ccnumber,ccexpdate,isenabled)  VALUES('rblues','Blues','Rhythm','4939 N. Hacker Street','Hacker','MI','45678','2485559999','adisableduser@hacker.com','$6$..1wrLkL$JSxAcLbLep3KYKG2WwVsG5GVBsDRM63rw6aehAOpYMYGScmuO.c/nt5prso1p8.oiwCTPcZDol.JH2..jHror1','V',4837399203992811,012018,'N');
-INSERT INTO books (isbn,title,author,subject,pubyear,description,imageurl,quantity,supplier,price)  VALUES('382759103548','Introduction to Finance','Sherry Platt','Finance','2012','This is a book description','images/book.jpg','12','Morton House books','39.99');
-INSERT INTO books (isbn,title,author,subject,pubyear,description,imageurl,quantity,supplier,price)  VALUES('349123428183','Where the Wild Things Are','Maurice Sendak','Fiction','1974','A favorite of children\'s literature','images/book.jpg','10','Harper and Row','12.99');
-INSERT INTO books (isbn,title,author,subject,pubyear,description,imageurl,quantity,supplier,price)  VALUES('349138103922','American Government: A History','Janet Jones','History','2011','This is a book description','images/book.jpg','3','Grover Educational books','59.99');
-INSERT INTO books (isbn,title,author,subject,pubyear,description,imageurl,quantity,supplier,price)  VALUES('493188204823','Internet for Dummies','Margaret Young','Computers','2012','For dummies series','images/book.jpg','0','Wiley and Sons','31.99');
-UPDATE books SET buyerdate='20151127';
