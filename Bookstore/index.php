@@ -7,6 +7,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 <html>
 <head>
 	<title>Tim Bookstore</title>
+	<meta charset="utf-8"/>
 	<link rel="stylesheet" type="text/css"	href="css/bookstore.css">
 	
 	<script type="text/javascript">
@@ -166,7 +167,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 		}else{
 			echo "<script type='text/javascript'>alert('Please enter all data');</script>";
 		}
-		
+	echo $r_ccexpdate;	
 	}
 	//if login press
 	//----------------------------------------------------------------------------------------------------------	
@@ -175,7 +176,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 			$username_check=$_POST['login_user'];
 			$pass_check=$_POST['login_pass'];
 			
-			$query_u="SELECT `username`, `passwdhash` FROM `users` WHERE username='$username_check'";			
+			$query_u="SELECT `username`, `passwdhash`,`isenabled`  FROM `users` WHERE username='$username_check'";			
 			$resuilt_u=mysqli_query($con,$query_u);
 			printSqlErr($resuilt_u,$con);			
 			$num_rows_u=mysqli_num_rows($resuilt_u);
@@ -184,9 +185,12 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 			if ($num_rows_u>0){
 				while($row_array_u=mysqli_fetch_array($resuilt_u)){
 					if ($pass_check==$row_array_u['passwdhash']){
-						$_SESSION['usern']=$row_array_u['username'];
-						header ( "Location:userafterlogin.php" );
-						
+						if($row_array_u['isenabled']=='y'||$row_array_u['isenabled']=='Y'){
+							$_SESSION['usern']=$row_array_u['username'];
+							header ( "Location:userafterlogin.php" );
+						}else{
+							echo"<script type='text/javascript'>alert('User Disabled');</script>";
+						}	
 					}else{
 						echo"<script type='text/javascript'>alert('Incorect password');</script>";
 					}
@@ -248,8 +252,9 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 			  <label>Card number:</label> 
 			  <input type="text" id="" placeholder="16 digits" name="register_ccnumber"> </br>
 			  <label>Expiration date:</label> 
-			  <input type="text" id="" placeholder="MMYYYY" name="register_ccexpdate"> </br>
+			  <input type="text" id="" placeholder="MM-Year" name="register_ccexpdate"> </br>
 			  <button type="submit" class="" name="register_complete" onclick="insertUser">Register</button>
+			  <button type="submit" class="" name="cancel" onclick="">Cancel</button>
 			</form> 
 			
 		';

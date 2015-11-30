@@ -1,12 +1,16 @@
 <?php
 include 'dbconnect.php';
 session_start ();
-$_SESSION['admin']='';
+//$_SESSION['admin']='';
+if (!empty($_SESSION ['admin'])) {
+	header ( "Location:adminafterlogin.php" );
+}
 $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=$r_lname=$r_pass=$r_phone=$r_rpass=$r_state=$r_zip='';
 ?>
 <html>
 <head>
 	<title>Tim Bookstore</title>
+	<meta charset="utf-8"/>
 	<link rel="stylesheet" type="text/css"	href="css/bookstore.css">
 	
 	<script type="text/javascript">
