@@ -61,6 +61,6 @@ if ($_SESSION['usern'] != '') { // Is a user logged in?
 // Now, send back the result of the operation.
 header("Content-type: text/plain");
 
-echo "$retVal:$errMsg:$nextItemNo";
+echo "$retVal:$errMsg:$nextItemNo:";
 
 ?>
