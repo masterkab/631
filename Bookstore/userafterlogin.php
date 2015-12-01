@@ -13,7 +13,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 	<link rel="stylesheet" type="text/css"	href="css/bookstore.css">
 	<!-- Added 11/21/15 by Tim -->
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script> <!-- import Jquery for AJAX -->
-	<script type="text/javascript" src="addtocart.js"> </script>
+	<script type="text/javascript" src="js/addtocart.js"> </script>
 </head>
 <body>
 	
