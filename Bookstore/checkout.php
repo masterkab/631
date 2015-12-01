@@ -13,7 +13,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 	<link rel="stylesheet" type="text/css"	href="css/bookstore.css">
 	<!-- Added 11/21/15 by Tim -->
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script> <!-- import Jquery for AJAX -->
-	<script type="text/javascript" src="updatecart.js"></script>
+	<script type="text/javascript" src="js/updatecart.js"></script>
 </head>
 <body>
 	
@@ -60,7 +60,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 		
 <?php
 	//--------------------------------------------------------------------------------------------------
-	if(!($_GET['doCheck']|| $_GET['doFinalize'])) {
+	if(!(isset($_GET['doCheck']))|| (isset($_GET['doFinalize']))) {
 		$sqlStmt="SELECT carts.itemqty,carts.itemno,books.* FROM carts INNER JOIN books ON carts.itemisbn=books.isbn WHERE username='".$_SESSION['usern']."' ORDER BY title";
 		$result=mysqli_query($con,$sqlStmt);
 		if($result->num_rows==0) { // empty cart
@@ -105,7 +105,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 				echo '<a href="userafterlogin.php">Cancel check out</a>';
 			}
 		}
-	} else if($_GET["doCheck"]) { // Do final check of CC data
+	} else if(isset($_GET['doCheck'])) { // Do final check of CC data
 		$sqlStmt="SELECT carts.itemqty,carts.itemno,books.* FROM carts INNER JOIN books ON carts.itemisbn=books.isbn WHERE username='".$_SESSION['usern']."' ORDER BY title";
 		$result=mysqli_query($con,$sqlStmt);
 		if($result->num_rows==0) { // empty cart
@@ -186,7 +186,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 				}
 			}
 		}
-	} else if($_GET["doFinalize"]) {
+	} else if(isset($_GET['doFinalize'])) {
 		$myUser='order_'.$_SESSION['usern'];
 		if($_SESSION[$myUser]) {
 			$orderArray=$_SESSION[$myUser];
@@ -200,7 +200,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 			} else {
 				$curOrderNum=$num_rows+1;
 			}
-			$orderDate=date('Ymd');
+			$orderDate=date('Y-m-d');
 			$sqlStmt="INSERT INTO orders (ordernumber,username,orderdate,orderstatus,orderitems,ordertotal) VALUES('".
 				$curOrderNum."','".$_SESSION['usern']."','".
 				$orderDate."','C','".$orderArray['orderitems'].
