@@ -29,4 +29,5 @@ INSERT INTO orders (ordernumber,username,orderdate,ordsecnum,orderstatus,orderit
 INSERT INTO items (ordernumber,itemno,itemisbn,itemqty,itemprice) VALUES('3','1','493188204823','1','31.99');
 
 UPDATE books SET imageurl='img/book.jpg';
-
+UPDATE users SET cctype='v' WHERE cctype='V';
+UPDATE users SET cctype='m' WHERE cctype='M';
