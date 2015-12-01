@@ -60,7 +60,8 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 		
 <?php
 	//--------------------------------------------------------------------------------------------------
-	if(!(isset($_GET['doCheck']))|| (isset($_GET['doFinalize']))) {
+	if(!(isset($_GET['doCheck'])|| (isset($_GET['doFinalize'])))) {
+		echo "<b>Your shopping cart contains the fillowing items:</b><br>";
 		$sqlStmt="SELECT carts.itemqty,carts.itemno,books.* FROM carts INNER JOIN books ON carts.itemisbn=books.isbn WHERE username='".$_SESSION['usern']."' ORDER BY title";
 		$result=mysqli_query($con,$sqlStmt);
 		if($result->num_rows==0) { // empty cart
@@ -101,8 +102,8 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 				$sqlStmt=$con->prepare($sqlStr);
 				$retVal=mysqli_stmt_execute($sqlStmt);
 			} else {
-				echo '</table><a href="checkout.php?doCheck=next">Check out</a>';
-				echo '<a href="userafterlogin.php">Cancel check out</a>';
+				echo '</table><a href="checkout.php?doCheck=next" class="button">Check out</a>';
+				echo '<a href="userafterlogin.php" class="button">Cancel check out</a>';
 			}
 		}
 	} else if(isset($_GET['doCheck'])) { // Do final check of CC data
@@ -182,7 +183,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 					$ccexp1=substr($ccexp,0,2);
 					$ccexp2=substr($ccexp,-4);
 					echo "<b>Expiration date: </b>".$ccexp1."/".$ccexp2."<br>";
-					echo '<br><a href="checkout.php?doFinalize=next">Finalize checkout</a> <a href="userafterlogin.php">Cancel checkout</a>';
+					echo '<br><a href="checkout.php?doFinalize=next" class="button">Finalize checkout</a> <a href="userafterlogin.php" class="button">Cancel checkout</a>';
 				}
 			}
 		}
@@ -223,14 +224,13 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 					$retVal=mysqli_stmt_execute($sqlStmt);
 					echo "<b>Thank you for your order</b><br>";
 					echo "Your order will be shipped on the next business day.";
-					echo '<br><a href="userafterlogin.php">Return to main page</a>';
+					echo '<br><a href="userafterlogin.php" class="button">Return to main page</a>';
 					unset($_SESSION[$myUser]);
 				} else {
 					echo "Unable to insert new order";
 				}
 		} else {
-		echo "<b>Your session has expired</b><br>";
-		echo '<a href="index.php">Login again to continue</a>';
+		header("userafterlogin.php");
 		}
 	}
 
