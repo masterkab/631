@@ -12,7 +12,7 @@ if ($_SESSION['usern'] != '') { // Is a user logged in?
 		if($result=mysqli_stmt_execute($sqlStmt)==1) {
 			$retVal=true;
 			$errMsg='Order '.$_POST['orderno'].' has been cancelled.';
-			harvestBooksFromCancelledOrders($_POST['orderno']);
+			harvestBooksFromCancelledOrders($con,$_POST['orderno']);
 		} else {
 			// Something went wrong here.
 			$retVal=false;
