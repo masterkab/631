@@ -7,6 +7,7 @@ if ($_SESSION['usern'] != '') { // Is a user logged in?
 	  (isset($_POST['itemno']) && !empty($_POST['itemno'])) &&
 	  (isset($_POST['quantity']))) {
 		$newQty=$_POST['quantity'];
+		$outQty=$newQty;
 		// We need the quantity of the book
 		$sqlStmt="SELECT quantity,title FROM books WHERE isbn='" .
 		$_POST['isbn'] . "'";
@@ -21,7 +22,7 @@ if ($_SESSION['usern'] != '') { // Is a user logged in?
 				$sqlStmt=$con->prepare($sqlStr);
 				if($result=mysqli_stmt_execute($sqlStmt)==1) {
 					$retVal=true;
-					$errMsg=$mySel["title"] . ' quantity has been updated your shopping cart.';
+					$errMsg=$mySel['title'].' quantity has been updated in your shopping cart.';
 				} else {
 					// Something went wrong here.
 					$retVal=false;
@@ -30,7 +31,11 @@ if ($_SESSION['usern'] != '') { // Is a user logged in?
 			} else {
 				// Not enough books in stock, so we don't try to update.
 				$retVal=false;
-				$errMsg=$_POST['title'].' is unavailable in that quantity';
+				$errMsg=$mySel['title'].' is unavailable in that quantity';
+				$sqlStmt2="SELECT itemqty FROM carts WHERE username='".$_SESSION['usern']."' AND itemno='". $_POST['itemno']."'";
+				$result2=mysqli_query($con,$sqlStmt2);
+				$mySel2=$result2->fetch_assoc();
+				$outQty=$mySel2['itemqty'];
 			}
 		} else {
 			// This should never happen, but the book wasn't found.
@@ -51,6 +56,6 @@ if ($_SESSION['usern'] != '') { // Is a user logged in?
 // Now, send back the result of the operation.
 header("Content-type: text/plain");
 
-echo "$retVal:$errMsg:";
+echo "$retVal:$errMsg:$outQty:";
 
 ?>
