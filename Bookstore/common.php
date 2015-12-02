@@ -1,5 +1,13 @@
 <?php
 
+function harvestBooksFromCancelledOrders($con,$orderno) {
+// TODO: implement harvestBooksFromCancelledOrders
+}
+
+function removeBookFromInventory($con,$isbn,$quantity) {
+// TODO: implement removeBooksFromInventory
+}
+
 function getCountOfItemsInBasket($con) {
 
 	if (!($_SESSION['usern']=='')) {

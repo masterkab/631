@@ -13,7 +13,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 	<link rel="stylesheet" type="text/css"	href="css/bookstore.css">
 	<!-- Added 11/21/15 by Tim -->
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script> <!-- import Jquery for AJAX -->
-	<script type="text/javascript" src="updatecart.js"></script>
+	<script type="text/javascript" src="js/cancelorder.js"></script>
 </head>
 <body>
 	
@@ -22,7 +22,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 			<h3>Tim Bookstore</h3>
 		</div>
 		<div id="basket">
-			<form class="" action="" method="post" id="basket_form">
+			<form class="" action="checkout.php" method="post" id="basket_form">
 				<label>Cart=</label> 
 				<output type="text" id="cart" name="cartn" ><?=getCountOfItemsInBasket($con)?> </output></br>
 				<button type="submit" class="" name="checkout">Checkout</button>
@@ -30,7 +30,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 		
 		</div>
 		<div id="logout">
-			<form class="" action="" method="post" id="login">
+			<form class="" action="userafterlogin.php" method="post" id="login">
 				<label>Welcome! <?php $username=$_SESSION['usern'];echo $username; ?></label></br>
 				<button type="submit" class="" name="logout">Logout</button>
 				<button type="submit" class="" name="update_p">Update profile</button>
@@ -62,7 +62,6 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 	Your order history:<br>
 <?php
 	//--------------------------------------------------------------------------------------------------
-	// TODO: turn this into AJAX code.
 
 	$sqlStmt="SELECT * FROM orders WHERE username='".$_SESSION['usern']. "' ORDER BY orderdate";
 	$result=mysqli_query($con,$sqlStmt);
@@ -71,23 +70,28 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 	} else {
 		while($row_array=mysqli_fetch_array($result)) {
 			echo "<b>Order # </b>".$row_array['ordernumber']."<br>\n";
-                        $odate=$row_array['orderdate'];
-                        $odatey=substr($odate,0,4);
-                        $odatem=substr($odate,4,2);
-                        $odated=substr($odate,-2);
-                        echo "<b>Order date: </b>".$odatem."/".$odated."/".$odatey."<br>\n";
+                        echo "<b>Order date: </b>".$row_array['orderdate']."<br>\n";
 			echo "<b>Order status: </b>";
+			$orderCanBeCancelled=false;
+
 			switch ($row_array['orderstatus']) {
 				case "o":
 				case "O":	echo "Open<br>\n";
 						break;
 				case "c":
-				case "C":	echo "Completed<br>\n";
+				case "C":	echo "Completed\n";
+						$orderCanBeCancelled=true;
 						break;
 				case "x":
 				case "X":	echo "Cancelled<br>\n";
 						break;
+				case "d":
+				case "D":	echo "Shipped<br>\n";
+						break;
 				default:	echo "Undefined<br>\n";
+			}
+			if($orderCanBeCancelled) {
+				echo '<input type="button" value="Cancel Order" onclick="cancelOrder('.$row_array['ordernumber'].')"></input><br>';
 			}
 			echo "<b>Items: </b>".$row_array['orderitems']."<br>\n";
 			echo "<b>Total: </b> \$".$row_array['ordertotal']."<br>\n";
@@ -121,6 +125,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 		}
 	}
 ?>	
+	<br>
 	</div>
 	
 	

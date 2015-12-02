@@ -153,7 +153,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 	//if past order press
 	//----------------------------------------------------------------------------------------------------------	
 	else if(isset ( $_POST ['checkout'] )){
-		echo'Tim code';
+		header("Location:checkout.php");
 	}
 	//----------------------------------------------------------
 	//print error for sql

@@ -22,7 +22,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 			<h3>Tim Bookstore</h3>
 		</div>
 		<div id="basket">
-			<form class="" action="" method="post" id="basket_form">
+			<form class="" action="checkout.php" method="post" id="basket_form">
 				<label>Cart=</label> 
 				<output type="text" id="cart" name="cartn" ><?=getCountOfItemsInBasket($con)?> </output></br>
 				<button type="submit" class="" name="checkout">Checkout</button>
@@ -30,7 +30,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 		
 		</div>
 		<div id="logout">
-			<form class="" action="" method="post" id="login">
+			<form class="" action="userafterlogin.php" method="post" id="login">
 				<label>Welcome! <?php $username=$_SESSION['usern'];echo $username; ?></label></br>
 				<button type="submit" class="" name="logout">Logout</button>
 				<button type="submit" class="" name="update_p">Update profile</button>
@@ -217,6 +217,8 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 						$sqlCmd=$con->prepare($sqlStmt);
 						if(!($result=mysqli_stmt_execute($sqlCmd))) {
 							echo "Error on insert item";
+						} else {
+							removeBookFromInventory($con,$item['itemisbn'],$item['itemqty']);
 						}
 					}
 					$sqlStr="DELETE FROM carts WHERE username='".$_SESSION['usern']."'";
