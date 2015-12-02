@@ -24,18 +24,42 @@ if ($_SESSION['usern'] != '') { // Is a user logged in?
 			$mySel=$result->fetch_assoc();
 			$inStock=$mySel["quantity"];
 			if($inStock>0) { // There must be at least 1 book
-				// Add the book to the cart.
-				$myPrice=$mySel["price"];
-				$sqlStr="INSERT INTO carts (username,itemno,itemisbn,itemqty,itemprice) VALUES('" . $_SESSION['usern'] . "','" . $nextItemNo . "','" . $_POST['add'] . "','1','" . $mySel["price"] . "')";
-				$sqlStmt=$con->prepare($sqlStr);
-				if($result=mysqli_stmt_execute($sqlStmt)==1) {
-					$retVal=true;
-					$errMsg=$mySel["title"] . ' has been added to your shopping cart.';
+				// First, check to verify that the book is not in the cart already
+				$sqlStr2="SELECT itemqty FROM carts WHERE username='".$_SESSION['usern']."' AND itemisbn='".$_POST['add']."'";
+				$result2=mysqli_query($con,$sqlStr2);
+				if($result2->num_rows!=0) { // we expect this to be zero if not in table
+					// The book is already in the cart.  
+					$nextItemNo--;
+					$mySel2=$result2->fetch_assoc();
+					// Are there enough books in stock to add one more?
+					if(($mySel2['itemqty']+1)>$mySel['quantity']) { // no
+						$retVal=false;
+						$errMsg="Insufficient inventory to meet request.";
+					} else { // yes 
+						$sqlStr3="UPDATE carts SET itemqty=itemqty+1 WHERE itemisbn='".$_POST['add']."'";
+						$sqlStmt3=$con->prepare($sqlStr3);
+						if($result=mysqli_stmt_execute($sqlStmt3)==1) {
+							$retVal=true;
+							$errMsg=$mySel["title"] . ' has been added to your shopping cart.';
+						} else {
+							$retVal=false;
+							$errMsg='Error on UPDATE';
+						}
+					}
 				} else {
-					// Something went wrong here.
-					$retVal=false;
-					$errMsg='Error on INSERT.';
-					error_log("Query: ".$sqlStmt);
+					// Add the book to the cart.
+					$myPrice=$mySel["price"];
+					$sqlStr="INSERT INTO carts (username,itemno,itemisbn,itemqty,itemprice) VALUES('" . $_SESSION['usern'] . "','" . $nextItemNo . "','" . $_POST['add'] . "','1','" . $mySel["price"] . "')";
+					$sqlStmt=$con->prepare($sqlStr);
+					if($result=mysqli_stmt_execute($sqlStmt)==1) {
+						$retVal=true;
+						$errMsg=$mySel["title"] . ' has been added to your shopping cart.';
+					} else {
+						// Something went wrong here.
+						$retVal=false;
+						$errMsg='Error on INSERT.';
+						error_log("Query: ".$sqlStmt);
+					}
 				}
 			} else {
 				// No books in stock, so we don't try to add.
