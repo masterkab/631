@@ -103,7 +103,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 				$id_counter=1;	
 				while($row_array=mysqli_fetch_array($resuilt)){
 					//echo '<col width="64px">';
-					echo '<tr width="150px"><td><img width="64px" height="128px" src="/bookstore/img/' . $row_array['imageurl'] . '"/></td>';
+					echo '<tr width="150px"><td><img width="64px" height="128px" src="img/' . $row_array['imageurl'] . '"/></td>';
 					echo '<td width="150px">' . $row_array ['title'] . '</td>
 						  <td width="150px">' . $row_array ['author'] . '</td>
 						  <td width="150px">' . $row_array ['isbn'] . '</td>
@@ -111,11 +111,14 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 						  <td width="150px">' . $row_array ['price'] . '</td>
 					      </tr>';
 					
+					if($row_array['quantity'] > 0) {
 						echo '<td><button name="addcart" align="right" type="button" class="addtocart" id='.$id_counter.' onclick="addToCart(';
 	// Added 11/21/15 by Tim 
 						echo $row_array['isbn'];
 						echo ',this.id);">Add To Cart</button></td>';
-						
+					} else {
+						echo "<td><b>Out of stock</b></td>";
+					}	
 					$id_counter+=1;
 				}
 				echo'</tbody> </table>';
