@@ -86,7 +86,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 			while($row_array=mysqli_fetch_array($result)) {
 				if($row_array['itemqty']>0) {
 					$foundItemInCart=true;
-					echo '<td width="150px"><img src="'.$row_array['imageurl']. '"></td>';
+					echo '<td width="150px"><img src="img/'.$row_array['imageurl']. '"></td>';
 					echo '<td width="150px">'.$row_array['title'].'</td>';
 					echo '<td width="150px">'.$row_array['author'].'</td>';
 					echo '<td width="150px">'.$row_array['isbn'].'</td>';
