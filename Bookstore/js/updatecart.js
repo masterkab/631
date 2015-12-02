@@ -11,8 +11,10 @@ function updateCart(isbn,itemno,eid){
 				var myResponse=(xhtml.responseText).split(':');
 				if(myResponse[0]=='true') {
 				} 
-				// Display the result.  This is a kludge.  Fix.
+				// Display the result.  
 				alert(myResponse[1]);
+				// in case the attempt failed, we change the value
+				document.getElementById(eid).value=myResponse[2];
 			}
 		}
 		xhtml.send("isbn="+isbn+"&itemno="+itemno+"&quantity="+quantity);
