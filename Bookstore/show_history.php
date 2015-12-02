@@ -112,7 +112,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 			$sqlStmt="SELECT books.*,items.itemno,items.itemqty,items.itemprice FROM items INNER JOIN books ON items.itemisbn=books.isbn WHERE ordernumber='".$row_array['ordernumber']."' ORDER BY title";
 			$result2=mysqli_query($con,$sqlStmt);
                         while($row_array2=mysqli_fetch_array($result2)) {
- 	                	echo '<td width="150px"><img src="'.$row_array2['imageurl']. '"></td>';
+ 	                	echo '<td width="150px"><img src="img/'.$row_array2['imageurl']. '"></td>';
         	        	echo '<td width="150px">'.$row_array2['title'].'</td>';
                 		echo '<td width="150px">'.$row_array2['author'].'</td>';
                         	echo '<td width="150px">'.$row_array2['isbn'].'</td>';
