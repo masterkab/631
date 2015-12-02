@@ -28,6 +28,6 @@ INSERT INTO items (ordernumber,itemno,itemisbn,itemqty,itemprice) VALUES('2','2'
 INSERT INTO orders (ordernumber,username,orderdate,ordsecnum,orderstatus,orderitems,ordertotal) VALUES('3','mcpherson','2015-11-28','0000','C','1','31.99');
 INSERT INTO items (ordernumber,itemno,itemisbn,itemqty,itemprice) VALUES('3','1','493188204823','1','31.99');
 
-UPDATE books SET imageurl='img/book.jpg';
+UPDATE books SET imageurl='book.jpg';
 UPDATE users SET cctype='v' WHERE cctype='V';
 UPDATE users SET cctype='m' WHERE cctype='M';
