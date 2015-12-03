@@ -19,15 +19,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 		function userChange (element){
 			document.getElementById(element).disabled=true;
 			$.post('updateuser.php',{postuser:element},function(data){});
-			/*$.ajax({
-					type: "POST",
-					url: 'updateuser.php',
-					data: "postuser="+element ,
-					success: function(data)
-					{
-						alert(data);
-					}
-				});*/
+			
 			
 		}														
 	</script>
@@ -93,7 +85,6 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 				echo'
 					<table align="center">
 					
-					<thead>
 					<tr align="left">
 						<th width="150px">Frist Name</th>
 						<th width="150px">Last Name</th>
@@ -107,7 +98,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 						<th width="150px">Email</th>
 						
 					</tr>
-					</thead>
+					
 					<tobody>';
 				$id_counter=1;	
 				while($row_array=mysqli_fetch_array($resuilt)){
@@ -181,7 +172,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 								
 				echo'<h4> List all users :</h4>
 					<table align="center">					
-					<thead>
+					
 					<tr align="left">
 						<th width="150px">Frist Name</th>
 						<th width="150px">Last Name</th>
@@ -195,7 +186,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 						<th width="150px">Email</th>
 						
 					</tr>
-					</thead>
+					
 					<tobody>';
 				$id_counter=1;	
 				while($row_array=mysqli_fetch_array($resuilt)){

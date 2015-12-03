@@ -103,7 +103,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 				echo'<h3>List Books:</h3>
 					<table align="center">
 					
-					<thead>
+					
 					<tr align="left">
 						<th width="150px">Image</th>
 						<th width="150px">Title</th>
@@ -113,8 +113,8 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 						<th width="150px">Quantity</th>
 						<th width="150px">Price</th>
 					</tr>
-					</thead>
-					<tobody>';
+					
+					';
 				
 				while($row_array=mysqli_fetch_array($resuilt)){
 					//echo '<col width="64px">';
@@ -135,8 +135,8 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 						
 					
 				}				
-				echo'</tbody>';				
-				echo' </table>';
+				echo'';				
+				echo' ';
 				//echo '<form action="" method="post"><button name="editbook" type="submit">Edit last book</button></form>';
             }
 			else {
@@ -171,7 +171,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 				echo'<h3>List Books:</h3>
 					<table align="center">
 					
-					<thead>
+					
 					<tr align="left">
 						<th width="150px">Image</th>
 						<th width="150px">Title</th>
@@ -181,8 +181,8 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 						<th width="150px">Quantity</th>
 						<th width="150px">Price</th>
 					</tr>
-					</thead>
-					<tobody>';
+					
+					';
 				
 				while($row_array=mysqli_fetch_array($resuilt)){
 					//echo '<col width="64px">';
@@ -203,8 +203,8 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 						
 					
 				}				
-				echo'</tbody>';				
-				echo' </table>';
+				echo'';				
+				echo' ';
 				//echo '<form action="" method="post"><button name="editbook" type="submit">Edit last book</button></form>';
             }
 			else {
