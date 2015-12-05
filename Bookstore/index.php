@@ -1,6 +1,7 @@
 <?php
 include 'dbconnect.php';
 session_start ();
+ob_start();
 $_SESSION['usern']='';
 $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=$r_lname=$r_pass=$r_phone=$r_rpass=$r_state=$r_zip='';
 ?>
@@ -13,12 +14,13 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 <link href="tim_style.css" rel="stylesheet" type="text/css" />
 
 <link rel="stylesheet" href="css/coda-slider.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="css/table.css" type="text/css" />
 
 <script src="js/jquery-1.2.6.js" type="text/javascript"></script>
 <script src="js/jquery.scrollTo-1.3.3.js" type="text/javascript"></script>
 <script src="js/jquery.localscroll-1.2.5.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/jquery.serialScroll-1.2.1.js" type="text/javascript" charset="utf-8"></script>
-<script src="js/coda-slider.js" type="text/javascript" charset="utf-8"></script>
+<!--<script src="js/coda-slider.js" type="text/javascript" charset="utf-8"></script>-->
 <script src="js/jquery.easing.1.3.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
@@ -28,16 +30,17 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 	<div id="tim_wrapper">
         <div id="tim_sidebar"> 
 			<div id="header">
-                <h1><a href="#"><img src="C:/wamp/www/NewProject/New folder/ID_changes/images/logo1.png" width="200px" height="100px" margin-left:"10px"; title="Tim Book Store" alt="#" /></a></h1>
+                <h1><a href="#"><img src="images/logo1.png" width="200px" height="100px" margin-left:"10px"; title="Tim Book Store" alt="#" /></a></h1>
             </div> 
 
             <div id="menu">
                 <ul class="navigation">
-                    <li><a href="#home" class="selected menu_01">Home</a></li>
-                    <li><a href="#aboutus" class="menu_02">About Us</a></li>
-                    <li><a href="#services" class="menu_03">Services</a></li>
-                    <li><a href="#gallery" class="menu_04">Gallery</a></li>
-                    <li><a href="#contactus" class="menu_05">Contact</a></li>
+				  <form	action="" method="post">
+                   
+					<li><a class="menu_02"><button type="submit" class="menu_02" id="" name="register">Register</button></a></li>
+					<li><a class="menu_03"><button type="submit" class="menu_03" id="" name="admin">Admin</button></a></li>
+                                       
+				   </form>	
                 </ul>
             </div>
             <div class="search">
@@ -64,11 +67,8 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
               <div class="panel" id="home">
                 <div class="content_section">
                   <h2>Welcome to Tim Book Store</h2>
-                  <img src="C:/wamp/www/NewProject/New folder/ID_changes/images/bookImage.png" alt="Image 01" width="150px" height="100px" class="image_wrapper image_fl" />
-                  <p><em>Nullam at erat ipsum, quis tincidunt mauris. Nunc sit amet sapien eget eros iaculis hendrerit quis a enim. Vestibulum at leo ante, vel auctor velit.Nunc sit amet sapien eget eros iaculis hendrerit quis a enim.Nunc sit amet sapien eget eros iaculis hendrerit quis a enim.</em></p>
-                  <p>.</p>
-                </div>
-                <div class="content_section last_section">
+                  <img src="images/bookImage.png" alt="Image 01" width="150px" height="100px" class="image_wrapper image_fl" />
+                   <div class="content_section last_section">
                 	<div class="loginform">
                 		<p><h2>Login Here</h2></p>
                 	<form class = "" action="" method="post"  id="login">
@@ -83,10 +83,8 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
       </form>
       </div>
                 </div>
-                </div>
-                </div>
-               </div>
-              </div>
+				
+                
 		<!-- <div id="login">
 			<form class="" action="" method="post" id="login">
 				<label>Username:</label> 
@@ -284,13 +282,13 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 	//----------------------------------------------------------------------------------------------------------
 	//register form
 	function registerForm(){
-		echo' <form action="" method="post">
-			  <h4>Register new user:</h4>
-			  <label>Frist name:</label> 
+		echo' <form class="formdesign" action="" method="post">
+			  <h4>Register new user	:</h4>
+			  <label>Frist name		:</label> 
 			  <input type="text" id="" placeholder="Enter frist name" name="register_fname"> </br>
-			  <label>Family name:</label> 
+			  <label>Family name	:</label> 
 			  <input type="text" id="" placeholder="Enter family name" name="register_lname"> </br>
-			  <label>Username:</label> 
+			  <label>Username		:</label> 
 			  <input type="text" id="" placeholder="Enter username" name="register_user"> </br>
 			  <label>Email:</label> 
 			  <input type="text" id="" placeholder="email@booksore.com" name="register_email"> </br>
@@ -327,7 +325,12 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 	
 ?>	
 	</div>
-	
+	</div>
+               
+                </div>
+                </div>
+               </div>
+              </div>
 	
 </body>
 </html>

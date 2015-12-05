@@ -82,10 +82,21 @@ ul.navigation li {
     margin: 0;
 	padding: 0;
 }
-
-ul.navigation a {
+/*ul.navigation a {
 	display: block;
 	height: 47px;
+	padding: 12px 0 0 20px;
+	color: #fff;
+	font-size: 18px;
+	font-weight: 400;
+    text-decoration: none;
+	font-family: Georgia, "Times New Roman", Times, serif;
+}*/
+ul.navigation a button {
+	text-align: left;
+    display: block;
+	height: 47px;
+    width: 230px;
 	padding: 12px 0 0 20px;
 	color: #fff;
 	font-size: 18px;
