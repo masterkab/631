@@ -81,7 +81,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 				echo'
 					<table align="center">
 					
-					<thead>
+					
 					<tr align="left">
 						<th width="150px">Image</th>
 						<th width="150px">Title</th>
@@ -90,7 +90,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 						<th width="150px">Publisher</th>
 						<th width="150px">Price</th>
 					</tr>
-					</thead>
+					
 					<tobody>';
 				$id_counter=1;	
 				while($row_array=mysqli_fetch_array($resuilt)){

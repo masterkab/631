@@ -22,6 +22,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 		function order_inv()	{
 			document.getElementsByClassName('o_d')[0].style.display = "inline";
 			document.getElementsByClassName('o_s')[0].style.display = "none";
+			$('#res_op').empty();
 		}								
 							
 	</script>
@@ -104,7 +105,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 			if ($num_rows_o>0){
 			echo'	<h3>List search resuilts for orders and items:</h3>
 					<table align="center">					
-					<tobody>';
+					';
 			while($row_array_o=mysqli_fetch_array($resuilt)){
 				echo '<tr width="150px">';
 				echo '<td width="150px"><strong >Order no:</strong> ' . $row_array_o ['ordernumber'] . '</td>
@@ -130,8 +131,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 				$num_rows_t=mysqli_num_rows($resuilt_t);
 				if ($num_rows_t>0){
 					echo'	
-						<table align="center">					
-						<thead>
+											
 						<tr align="left">
 						<th width="150px"></th>
 						<th width="150px">Item no.</th>
@@ -140,8 +140,8 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 						<th width="150px">Price</th>
 						
 					</tr>
-					</thead>
-					<tobody>';
+					
+					';
 					while($row_array_t=mysqli_fetch_array($resuilt_t)){
 						echo '<tr width="150px">';
 						echo '<td width="150px"></td>
@@ -154,14 +154,15 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 						echo '<td>';
 						echo '</td></tr>';	
 					}
-					print "</tobody></table>";
-				}	
+					//print "</table>";
+				}
+				echo'<tr></tr>';	
 			}		
 		}
 		else{
 			print "There were no such rows in the tabel <br/>";
 			}
-		print "</tobody></table>";
+		print "</table>";
 	 }
 	}
 	//if search engin press
@@ -185,8 +186,6 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 				echo'	<h3>List search resuilts for orders:</h3>';				
 				echo'
 					<table align="center">
-					
-					<thead>
 					<tr align="left">
 						<th width="150px">Order no.</th>
 						<th width="150px">Username</th>
@@ -194,7 +193,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 						<th width="150px">Total</th>
 						<th width="150px">Status</th>
 					</tr>
-					</thead>
+					
 					<tobody>';
 					
 				while($row_array=mysqli_fetch_array($resuilt)){
@@ -227,7 +226,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 			else {
 				print "There were no such rows in the tabel <br/>";
 			}
-			print "</table>";
+			//print "</table>";
 			
 		}else{
 			echo "<script type='text/javascript'>alert('Please Select field to Search and Enter Text to search');</script>";
@@ -243,7 +242,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 		if ($num_rows_o>0){
 			echo'	<h3>List all orders:</h3>
 					<table align="center">					
-					<thead>
+					
 					<tr align="left">
 						<th width="150px">Order no.</th>
 						<th width="150px">Username</th>
@@ -252,8 +251,8 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 						<th width="150px">Status</th>
 						
 					</tr>
-					</thead>
-					<tobody>';
+					
+					';
 			while($row_array_o=mysqli_fetch_array($resuilt_o)){
 				echo '<tr width="150px">';
 					echo '<td width="150px">' . $row_array_o ['ordernumber'] . '</td>
@@ -264,17 +263,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 					      </br>';
 					
 					echo '<td>';
-					//<form action="" method="post">
-					/*echo '<form action="" method="post">
-						<select name='.$row_array_o['ordernumber'].' >
-							<option value="o">Open</option>
-							<option value="d">Delivered</option>
-							<option value="c">Canceled</option>
-						</select></form> </td><td>';
-						//$_SESSION[$row_array_o ['ordernumber']]=$_POST[$row_array_o ['ordernumber']];
-					echo'<script>
-							
-						</script>';*/
+					
 					echo '<form action="" method="post">';
 					if ($row_array_o ['orderstatus']=='o'){$a='c';$b='d';$a_val="Canceled";$b_val="Delivered";}
 					else if ($row_array_o ['orderstatus']=='d'){$a='o';$b='c';$a_val="Open";$b_val="Canceled";}
@@ -285,13 +274,13 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 					 onclick="ordstChange(this.id,\''.$row_array_o ['ordernumber'].'\',\''.$b.'\')";>';
 					 echo '</form>';
 					echo '</td></tr>';
-					 //onclick="ordstChange(this.id,\''.$row_array_o ['orderstatus'].'\')";>';
-			}		//onclick="ordstChange(this.id,$("#sel_v").val())>';
+					
+			}		
 		}
 		else{
 			print "There were no such rows in the tabel <br/>";
 			}
-		print "</tobody></table>";
+		print "</table>";
 	}
 	//
 	//----------------------------------------------------------------------------------------------------------	
@@ -303,7 +292,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 		if ($num_rows_o>0){
 			echo'	<h3>List all items:</h3>
 					<table align="center">					
-					<thead>
+					
 					<tr align="left">
 						<th width="150px">Order no.</th>
 						<th width="150px">Item no.</th>
@@ -312,8 +301,8 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 						<th width="150px">Price</th>
 						
 					</tr>
-					</thead>
-					<tobody>';
+					
+					';
 			while($row_array_o=mysqli_fetch_array($resuilt_o)){
 				echo '<tr width="150px">';
 					echo '<td width="150px">' . $row_array_o ['ordernumber'] . '</td>
@@ -342,7 +331,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 		if ($num_rows_o>0){
 			echo'	<h3>List all orders:</h3>
 					<table align="center">					
-					<thead>
+					
 					<tr align="left">
 						<th width="150px">Order no.</th>
 						<th width="150px">Username</th>
@@ -351,7 +340,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 						<th width="150px">Status</th>
 						
 					</tr>
-					</thead>
+					
 					<tobody>';
 			while($row_array_o=mysqli_fetch_array($resuilt_o)){
 				echo '<tr width="150px">';
@@ -404,10 +393,11 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 		$num_rows_o=mysqli_num_rows($resuilt_o);
 		if ($num_rows_o>0){
 			echo'	<h3>List all orders and items:</h3>
-					<table align="center">					
-					<tobody>';
+					<table align="center">';
 			while($row_array_o=mysqli_fetch_array($resuilt_o)){
-				echo '<tr width="150px">';
+				echo '					
+					 
+					  <tr width="150px">';
 				echo '<td width="150px"><strong >Order no:</strong> ' . $row_array_o ['ordernumber'] . '</td>
 					  <td width="150px"><strong >Username:</strong> ' . $row_array_o ['username'] . '</td>
 					  <td width="150px"><strong >Date:</strong> ' . $row_array_o ['orderdate'] . '</td>
@@ -430,8 +420,6 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 				$num_rows_t=mysqli_num_rows($resuilt_t);
 				if ($num_rows_t>0){
 					echo'	
-						<table align="center">					
-						<thead>
 						<tr align="left">
 						<th width="150px"></th>
 						<th width="150px">Item no.</th>
@@ -440,8 +428,8 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 						<th width="150px">Price</th>
 						
 					</tr>
-					</thead>
-					<tobody>';
+					
+					';
 					while($row_array_t=mysqli_fetch_array($resuilt_t)){
 						echo '<tr width="150px">';
 						echo '<td width="150px"></td>
@@ -451,17 +439,18 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 						  <td width="150px">' . $row_array_t ['itemprice'] . '</td>
 					      </br>';
 					
-						echo '<td>';
-						echo '</td></tr>';	
+						
+						echo '</tr>';	
 					}
-					print "</tobody></table>";
+					//print "</table>";
 				}	
-			}		
+			}
+			echo'<tr></tr>';	
 		}
 		else{
 			print "There were no such rows in the tabel <br/>";
 			}
-		print "</tobody></table>";
+		print "</table>";
 	}
 	//change passowrd
 	//----------------------------------------------------------------------------------------------------------	
@@ -482,7 +471,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 			if ($num_rows_o>0){
 			echo'	<h3>List search resuilts for orders and items:</h3>
 					<table align="center">					
-					<tobody>';
+					';
 			while($row_array_o=mysqli_fetch_array($resuilt)){
 				echo '<tr width="150px">';
 				echo '<td width="150px"><strong >Order no:</strong> ' . $row_array_o ['ordernumber'] . '</td>
@@ -508,8 +497,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 				$num_rows_t=mysqli_num_rows($resuilt_t);
 				if ($num_rows_t>0){
 					echo'	
-						<table align="center">					
-						<thead>
+					
 						<tr align="left">
 						<th width="150px"></th>
 						<th width="150px">Item no.</th>
@@ -518,8 +506,8 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 						<th width="150px">Price</th>
 						
 					</tr>
-					</thead>
-					<tobody>';
+					
+					';
 					while($row_array_t=mysqli_fetch_array($resuilt_t)){
 						echo '<tr width="150px">';
 						echo '<td width="150px"></td>
@@ -532,14 +520,15 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 						echo '<td>';
 						echo '</td></tr>';	
 					}
-					print "</tobody></table>";
-				}	
+					//print "</tobody></table>";
+				}
+				echo'<tr></tr>';	
 			}		
 		}
 		else{
 			print "There were no such rows in the tabel <br/>";
 			}
-		print "</tobody></table>";
+		print "</table>";
 	 }
 	}
 	
@@ -551,15 +540,6 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 		
 		if(!empty($fromdate)&&!empty($todate)){
 			
-			/*$query="SELECT `ordernumber`, `username`, `orderdate`, `ordsecnum`, `orderstatus`, `ordertotal`
-					FROM `orders` WHERE 
-						(cast(SUBSTR(orderdate,0,2) as int)>=cast(SUBSTR('$fromdate',0,2) as int)AND 
-						cast(SUBSTR(orderdate,0,2) as int)<=cast(SUBSTR('$todate',0,2) as int))
-					AND(cast(SUBSTR(orderdate,2,2) as int)>=cast(SUBSTR('$fromdate',2,2) as int)AND 
-						cast(SUBSTR(orderdate,2,2) as int)<=cast(SUBSTR('$todate',2,2) as int))
-					AND(cast(SUBSTR(orderdate,4,4) as int)>=cast(SUBSTR('$fromdate',4,4) as int)AND 
-						cast(SUBSTR(orderdate,4,4) as int)<=cast(SUBSTR('$todate',4,4) as int))	
-			";*/
 			$query="SELECT `ordernumber`, `username`, `orderdate`, `ordsecnum`, `orderstatus`, `ordertotal`
 					FROM `orders` WHERE orderdate between '$fromdate' AND '$todate'";
 			$resuilt=mysqli_query($con,$query);
@@ -573,7 +553,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 				echo'
 					<table align="center">
 					
-					<thead>
+					
 					<tr align="left">
 						<th width="150px">Order no.</th>
 						<th width="150px">Username</th>
@@ -581,7 +561,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 						<th width="150px">Total</th>
 						<th width="150px">Status</th>
 					</tr>
-					</thead>
+					
 					<tobody>';
 					
 				while($row_array=mysqli_fetch_array($resuilt)){
