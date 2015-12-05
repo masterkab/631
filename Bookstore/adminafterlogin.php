@@ -36,19 +36,18 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 			<h3>Tim Bookstore</h3>
 		
 		<div id="logout">
-			<form class="" action="" method="post" id="login">
+			<form class="" action="" method="post" >
 				<label>Admin! <?php $username=$_SESSION['admin'];echo $username; ?></label></br>
-				<button type="submit" class="" name="logout">Logout</button>
-				<button type="submit" class="" name="enter_pass">Change password</button>
-				<button type="submit" class="" name="add_admin">Add admin</button>				
-				<button type="submit" class="" name="update_u">Users stauts</button>
-				<button type="submit" class="" name="add_book">Add Book</button>				
-				<button type="submit" class="" name="orders">Orders</button>
-				<button type="button" class="" onclick="book_inv();">Book Inventory</button>
+				<button type="submit" class="" name="logout" id="logOutButton">Logout</button>
+				<button type="submit" class="" name="enter_pass" id="changePasswordButton">Change password</button>
+				<button type="submit" class="" name="add_admin" id="addAdminButton">Add admin</button>				
+				<button type="submit" class="" name="update_u" id="usersStatusButton">Users status</button>
+				<button type="submit" class="" name="add_book" id="addBookButton">Add Book</button>				
+				<button type="submit" class="" name="orders" id="ordersButton">Orders</button>
+				<button type="button" class="" onclick="book_inv();" id="bookInventoryButton">Book Inventory</button>
 			</form>
 				
 		</div>
-		
 			
 	</div>
 	
@@ -57,11 +56,11 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 		<form action="" method="post">
 				<div  class="q_b" style="display:none">
 					<strong  style="">Quantity From:</strong>
-					<input id="" type="text" class=""  name="fromqty" placeholder="">
+					<input id="quantityFrom_Id" type="text" class=""  name="fromqty" placeholder="">
 					<strong  style="">To:</strong>
-					<input id="" type="text" class=""  name="toqty" placeholder="">
+					<input id="quantityTo_Id" type="text" class=""  name="toqty" placeholder="">
 					</br>
-					<button type="submit" class="" name="Search_q">Search</button>
+					<button type="submit" class="" id="searchButton" name="Search_q">Search</button>
 					
 				</div >
 				<div class="s_r">
@@ -72,7 +71,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 					<label><input type="radio" name="search_r" value="isbn">ISBN</label>				
 					<label><input type="radio" name="search_r" value="quantity">Quantity</label>			
 					</br>
-					<button type="submit" class="" name="search_b">Search</button>
+					<button type="submit" class="" id="searchButton" name="search_b">Search</button>
 				</div>
 		</form>
 	</div>

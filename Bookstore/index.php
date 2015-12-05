@@ -6,51 +6,115 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 ?>
 <html>
 <head>
-	<title>Tim Bookstore</title>
-	<meta charset="utf-8"/>
-	<link rel="stylesheet" type="text/css"	href="css/bookstore.css">
-	
-	<script type="text/javascript">
-				
-	</script>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>The Tim Book Store</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="tim_style.css" rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet" href="css/coda-slider.css" type="text/css" charset="utf-8" />
+
+<script src="js/jquery-1.2.6.js" type="text/javascript"></script>
+<script src="js/jquery.scrollTo-1.3.3.js" type="text/javascript"></script>
+<script src="js/jquery.localscroll-1.2.5.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/jquery.serialScroll-1.2.1.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/coda-slider.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/jquery.easing.1.3.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
 	
 	<div class="" id="head">
-		<div class="">
-			<h3>Tim Bookstore</h3>
-		</div>
-		
-		<div id="login">
+		<div id="slider">
+	<div id="tim_wrapper">
+        <div id="tim_sidebar"> 
+			<div id="header">
+                <h1><a href="#"><img src="C:/wamp/www/NewProject/New folder/ID_changes/images/logo1.png" width="200px" height="100px" margin-left:"10px"; title="Tim Book Store" alt="#" /></a></h1>
+            </div> 
+
+            <div id="menu">
+                <ul class="navigation">
+                    <li><a href="#home" class="selected menu_01">Home</a></li>
+                    <li><a href="#aboutus" class="menu_02">About Us</a></li>
+                    <li><a href="#services" class="menu_03">Services</a></li>
+                    <li><a href="#gallery" class="menu_04">Gallery</a></li>
+                    <li><a href="#contactus" class="menu_05">Contact</a></li>
+                </ul>
+            </div>
+            <div class="search">
+		<h3>Search Book</h3>
+		<form action="" method="post">
+				<div  class="searchbook">
+					<input type="text" class="" id="search_id" name="tosearch" placeholder="search book">
+				</div>				
+					<p><label><input type="radio" name="search_r" value="author">Author</label>								
+					<label><input type="radio" name="search_r" value="title">Title</label>								
+					<label><input type="radio" name="search_r" value="isbn">ISBN</label></p>				
+								
+				<div class="submitsearch">
+					<button type="submit" class="" id="searchButton" name="search_b">Search</button>
+				</div>
+		</form>
+	</div>
+
+            		</div>
+            		
+            		<div id="content">
+          <div class="scroll">
+            <div class="scrollContainer">
+              <div class="panel" id="home">
+                <div class="content_section">
+                  <h2>Welcome to Tim Book Store</h2>
+                  <img src="C:/wamp/www/NewProject/New folder/ID_changes/images/bookImage.png" alt="Image 01" width="150px" height="100px" class="image_wrapper image_fl" />
+                  <p><em>Nullam at erat ipsum, quis tincidunt mauris. Nunc sit amet sapien eget eros iaculis hendrerit quis a enim. Vestibulum at leo ante, vel auctor velit.Nunc sit amet sapien eget eros iaculis hendrerit quis a enim.Nunc sit amet sapien eget eros iaculis hendrerit quis a enim.</em></p>
+                  <p>.</p>
+                </div>
+                <div class="content_section last_section">
+                	<div class="loginform">
+                		<p><h2>Login Here</h2></p>
+                	<form class = "" action="" method="post"  id="login">
+                		<p><label>Username:</label> <input type="text" id="login_id" name="login_user" placeholder="Username or Email"></p>
+        <p>
+        	<label>Password:</label> <input type="password" name="login_pass" id="login_pwd" placeholder="Password"></p>
+        
+               <p><button type="submit" class="" id="buttonOne" name="login">Login</button>
+				<button type="submit" class="" id="buttonTwo" name="register">Register</button>
+				<button type="submit" class="" id="buttonThree" name="admin">Admin</button></p>
+        
+      </form>
+      </div>
+                </div>
+                </div>
+                </div>
+               </div>
+              </div>
+		<!-- <div id="login">
 			<form class="" action="" method="post" id="login">
 				<label>Username:</label> 
 				<input type="text" id="login_id" placeholder="Enter username" name="login_user"> </br>
 				<label>Password:</label> 
 				<input type="password" name="login_pass" id="login_pwd" placeholder="Enter password"></br>
-				<button type="submit" class="" name="login">Login</button>
-				<button type="submit" class="" name="register">Register</button>
-				<button type="submit" class="" name="admin">Admin</button>
+				<button type="submit" class="" id="buttonOne" name="login">Login</button>
+				<button type="submit" class="" id="buttonTwo" name="register">Register</button>
+				<button type="submit" class="" id="buttonThree" name="admin">Admin</button>
 			</form>
 		</div>
-		
-			
 	</div>
 	
 	<div id="search">
 		<h3>Search Book</h3>
 		<form action="" method="post">
 				<div  class="">
-					<input id="search_input" type="text" class="" id="" name="tosearch" placeholder="search book">
+					<input type="text" class="" id="search_id" name="tosearch" placeholder="search book">
 				</div>				
 					<label><input type="radio" name="search_r" value="author">Author</label>								
 					<label><input type="radio" name="search_r" value="title">Title</label>								
 					<label><input type="radio" name="search_r" value="isbn">ISBN</label>				
 								
 				<div class="">
-					<button type="submit" class="" name="search_b">Search</button>
+					<button type="submit" class="" id="searchButton" name="search_b">Search</button>
 				</div>
-		</form>
-	</div>
+		</form> -->
+	
 	<div id="res_op">
 		
 <?php

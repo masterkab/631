@@ -41,9 +41,9 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 		<div id="logout">
 			<form class="" action="" method="post" id="login">
 				<label>Admin! <?php $username=$_SESSION['admin'];echo $username; ?></label></br>
-				<button type="submit" class="" name="logout">Logout</button>
-				<button type="submit" class="" name="main">Admin</button>
-				<button type="submit" class="" name="luser">List users</button>
+				<button type="submit" class="" name="logout" id="logOutButton">Logout</button>
+				<button type="submit" class="" name="main" id="adminButton">Admin</button>
+				<button type="submit" class="" name="luser" id="listUsersButton">List users</button>
 			</form>
 		</div>
 		
@@ -54,14 +54,14 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 		<h3>Search customer :</h3>
 		<form action="" method="post">
 				<div  class="">
-					<input id="search_input" type="text" class="" id="" name="tosearch" placeholder="search customer">
+					<input id="search_input" type="text" class=""  name="tosearch" placeholder="search customer">
 				</div>				
-					<label><input type="radio" name="search_r" value="username">Username</label>								
-					<label><input type="radio" name="search_r" value="firstname">Frist Name</label>								
-					<label><input type="radio" name="search_r" value="lastname">Family Name</label>				
-					<label><input type="radio" name="search_r" value="phome">Phone</label>			
+					<label><input type="radio" name="search_r" id="usernameId"value="username">Username</label>								
+					<label><input type="radio" name="search_r" id="firstnameId"value="firstname">First Name</label>								
+					<label><input type="radio" name="search_r" id="familynameId" value="lastname">Family Name</label>				
+					<label><input type="radio" name="search_r" id="phoneId" value="phone">Phone</label>			
 				<div class="">
-					<button type="submit" class="" name="search_u">Search</button>
+					<button type="submit" class="" id="searchButton" name="search_u">Search</button>
 				</div>
 		</form>
 	</div>

@@ -36,13 +36,13 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 		<div id="logout">
 			<form class="" action="" method="post" id="login">
 				<label>Admin! <?php $username=$_SESSION['admin'];echo $username; ?></label></br>
-				<button type="submit" class="" name="logout">Logout</button>
-				<button type="submit" class="" name="main">Admin</button>
-				<button type="submit" class="" name="lorders">List orders</button>
-				<button type="submit" class="" name="order_o">Open Orders</button>				
-				<button type="submit" class="" name="order_it">Order Items</button>
-				<button type="submit" class="" name="litems">List Items</button>
-				<button type="button" class="" onclick="order_inv()">Order inventory</button>
+				<button type="submit" class="" name="logout" id="logOutButton">Logout</button>
+				<button type="submit" class="" name="main" id="AdminButton">Admin</button>
+				<button type="submit" class="" name="" id="listOrdersButton">List orders</button>
+				<button type="submit" class="" name="order_o" id="openOrdersButton">Open Orders</button>				
+				<button type="submit" class="" name="order_it" id="orderItemsButton">Order Items</button>
+				<button type="submit" class="" name="litems" id="listItemsButton">List Items</button>
+				<button type="button" class="" onclick="order_inv()" id="orderInventoryButton">Order inventory</button>
 			</form>
 		</div>
 		
@@ -54,16 +54,16 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 		<form action="" method="post">
 				<div  class="o_d" style="display:none">
 					<strong  style="">Order Date From:</strong>
-					<input id="" type="date" dateformat="d M y" class=""  name="fromdate" placeholder="">
+					<input  type="date" dateformat="d M y" class=""  id="fromDate_Id" name="fromdate" placeholder="">
 					<strong  style="">To:</strong>
-					<input id="" type="date" class=""  name="todate" placeholder="">
+					<input type="date" class=""  id="toDate_Id" name="todate" placeholder="">
 					<label><input type="checkbox" name="search_cd" value="itemc">Items</label>	
 					</br>
-					<button type="submit" class="" name="Search_d">Search</button>
+					<button type="submit" class="" id="searchButton" name="Search_d">Search</button>
 					
 				</div >
 				<div  class="o_s">
-					<input id="search_input" type="text" class="" id="" name="tosearch" placeholder="search book">
+					<input id="search_input" type="text" class=""  name="tosearch" placeholder="search book">
 					<label><input type="checkbox" name="search_c" value="itemc">Items</label>	
 					</br>		
 					<label><input type="radio" name="search_r" value="ordernumber">Order no.</label>								
@@ -71,7 +71,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 									
 					<label><input type="radio" name="search_r" value="orderstatus">Order stauts</label>			
 					</br>
-					<button type="submit" class="" name="search_b">Search</button>
+					<button type="submit" class="" id="searchButton" name="search_b">Search</button>
 				</div>
 		</form>
 	</div>

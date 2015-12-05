@@ -18,23 +18,23 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 <body>
 	
 	<div class="" id="head">
-		<div class="">
+		<div class="" id="title">
 			<h3>Tim Bookstore</h3>
 		</div>
 		<div id="basket">
 			<form class="" action="checkout.php" method="post" id="basket_form">
 				<label>Cart=</label> 
 				<output type="text" id="cart" name="cartn" > <?=getCountOfItemsInBasket($con)?> </output></br>
-				<button type="submit" class="" name="checkout">Checkout</button>
+				<button type="submit" class="" id="checkOutButton" name="checkout">Checkout</button>
 			</form>
 		
 		</div>
 		<div id="logout">
 			<form class="" action="" method="post" id="login">
 				<label>Welcome! <?php $username=$_SESSION['usern'];echo $username; ?></label></br>
-				<button type="submit" class="" name="logout">Logout</button>
-				<button type="submit" class="" name="update_p">Update profile</button>
-				<button type="submit" class="" name="past_o">Past orders</button>
+				<button type="submit" class="" id="logOutButton" name="logout">Logout</button>
+				<button type="submit" class="" id="updateProfileButton" name="update_p">Update profile</button>
+				<button type="submit" class="" id="pastOrdersButton" name="past_o">Past orders</button>
 			</form>
 		</div>
 		
@@ -45,14 +45,14 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 		<h3>Search Book</h3>
 		<form action="" method="post">
 				<div  class="">
-					<input id="search_input" type="text" class="" id="" name="tosearch" placeholder="search book">
+					<input id="search_input" type="text" class=""  name="tosearch" placeholder="search book">
 				</div>				
 					<label><input type="radio" name="search_r" value="author">Author</label>								
 					<label><input type="radio" name="search_r" value="title">Title</label>								
 					<label><input type="radio" name="search_r" value="isbn">ISBN</label>				
 								
 				<div class="">
-					<button type="submit" class="" name="search_b">Search</button>
+					<button type="submit" class="" id="searchButton" name="search_b">Search</button>
 				</div>
 		</form>
 	</div>
