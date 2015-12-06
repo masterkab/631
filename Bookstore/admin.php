@@ -1,6 +1,7 @@
 <?php
 include 'dbconnect.php';
 session_start ();
+ob_start();
 //$_SESSION['admin']='';
 if (!empty($_SESSION ['admin'])) {
 	header ( "Location:adminafterlogin.php" );
@@ -11,15 +12,72 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 <head>
 	<title>Tim Bookstore</title>
 	<meta charset="utf-8"/>
-	<link rel="stylesheet" type="text/css"	href="css/bookstore.css">
+	<link  rel="stylesheet" href="css/tim_style.css" type="text/css" />
+	<link rel="stylesheet" href="css/coda-slider.css" type="text/css"/>
+	<link rel="stylesheet" href="css/table.css" type="text/css" />
 	
 	<script type="text/javascript">
 				
 	</script>
 </head>
 <body>
-	
-	<div class="" id="head" >
+	<div id="tim_wrapper">
+				<div id="tim_sidebar"> 
+					<div id="header">
+						<h1><a href="#"><img src="images/logo1.png" width="200px" height="100px" margin-left:"10px"; title="Tim Book Store" alt="#" /></a></h1>
+					</div> 
+
+					<div id="menu">
+						<ul class="navigation">
+						<form	action="" method="post">
+                   
+							
+							<li><a class="menu_01"><button type="submit" class="menu_01" id="" name="main">Home</button></a></li>
+                                       
+						</form>	
+						</ul>
+					</div>
+					<div class="search">
+						<h3>Search Book</h3>
+						<form action="" method="post">
+							<div  class="searchbook">
+								<input type="text" class="" id="search_id" name="tosearch" placeholder="search book">
+							</div>				
+							<p><label><input type="radio" name="search_r" value="author">Author</label>								
+								<label><input type="radio" name="search_r" value="title">Title</label>								
+								<label><input type="radio" name="search_r" value="isbn">ISBN</label>
+							</p>				
+								
+						<div class="submitsearch">
+							<button type="submit" class="" id="searchButton" name="search_b">Search</button>
+						</div>
+						</form>
+					</div>
+
+            	</div>
+            		
+            	<div id="content">
+					<div class="scroll">
+						<div class="scrollContainer">
+							<div class="panel" id="home">
+								<div class="content_section">
+									<h2>Welcome to Tim Book Store</h2>
+									<img src="images/bookImage.png" alt="Image 01" width="150px" height="100px" class="image_wrapper image_fl" />
+									<div class="content_section last_section">
+										<div class="loginform">
+											<p><h2>Login Here</h2></p>
+											<form class="formadlog" action="" method="post" id="login">
+												<label>Admin :</label> 
+												<input type="text" id="login_id" placeholder="Enter admin" name="login_user"></br> 
+												<label>Password:</label> 
+												<input type="password" name="login_pass" id="login_pwd" placeholder="Enter password"></br>
+												<button type="submit" class="" id="buttonOne" name="login">Login</button>
+												<button type="submit" class="" id = "mainButton" name="main">Main</button>
+				
+											</form>
+										</div>
+									</div>
+	<!--<div class="" id="head" >
 		<div class="" id="title">
 			<h3>Tim Bookstore</h3>
 		</div>
@@ -53,7 +111,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 					<button type="submit" class="" id="buttonFive" name="search_b">Search</button>
 				</div>
 		</form>
-	</div>
+	</div>-->
 	<div id="res_op">
 		
 <?php
@@ -168,7 +226,14 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 	
 	
 ?>	
-	</div>
+							</div>
+								</div>
+               
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 	
 	
 </body>
