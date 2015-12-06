@@ -215,7 +215,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 					$new_user="INSERT INTO `users`(`username`, `lastname`, `firstname`, `address`, `city`,
 					`state`, `zip`, `telephone`, `email`, `passwdhash`, `cctype`, `ccnumber`, `ccexpdate`, `isenabled`)
 					VALUES ('$r_user','$r_lname','$r_fname','$r_address','$r_city','$r_state','$r_zip','$r_phone','$r_email',
-					'$r_pass','$r_cctype',$r_ccnumber,$r_ccexpdate,'y')";
+					'".crypt($r_pass)."','$r_cctype',$r_ccnumber,$r_ccexpdate,'y')";
 			
 					$insert_new_user = mysqli_query ($con, $new_user);
 					printSqlErr($insert_new_user,$con);
@@ -236,7 +236,6 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 	else if(isset ( $_POST ['login'] )){
 		if(!empty ($_POST['login_user'])&&!empty ($_POST['login_pass'])){
 			$username_check=$_POST['login_user'];
-			$pass_check=$_POST['login_pass'];
 			
 			$query_u="SELECT `username`, `passwdhash`,`isenabled`  FROM `users` WHERE username='$username_check'";			
 			$resuilt_u=mysqli_query($con,$query_u);
@@ -246,6 +245,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 			//print header of tabel
 			if ($num_rows_u>0){
 				while($row_array_u=mysqli_fetch_array($resuilt_u)){
+					$pass_check=crypt($_POST['login_pass'],$row_array_u['passwdhash']);
 					if ($pass_check==$row_array_u['passwdhash']){
 						if($row_array_u['isenabled']=='y'||$row_array_u['isenabled']=='Y'){
 							$_SESSION['usern']=$row_array_u['username'];

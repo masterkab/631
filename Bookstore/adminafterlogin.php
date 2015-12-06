@@ -313,9 +313,9 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 			//print header of tabel
 			if ($num_rows_ad>0){
 				while($row_array_ad=mysqli_fetch_array($resuilt_ad)){
-					if ($old_pass==$row_array_ad['passwdhash']){
+					if (crypt($old_pass,$row_array_ad['passwdhash'])==$row_array_ad['passwdhash']){
 						if($new_pass==$_POST['new_rpass']){
-							$query_up="UPDATE `admins` SET `passwdhash`=$new_pass WHERE username='$admin_u'";
+							$query_up="UPDATE `admins` SET `passwdhash`='".crypt($new_pass)."' WHERE username='$admin_u'";
 							$resuilt_up=mysqli_query($con,$query_up);
 							printSqlErr($resuilt_up,$con);	
 							echo"<script type='text/javascript'>alert('passowrd has been changed');</script>";
@@ -450,7 +450,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 			if ($num_rows_ad==0){
 				
 						if($adm_pass==$_POST['adm_rpass']){
-							$query_ins="INSERT INTO `admins`(`username`, `passwdhash`) VALUES ('$admin_ad','$adm_pass')";
+							$query_ins="INSERT INTO `admins`(`username`, `passwdhash`) VALUES ('$admin_ad','".crypt($adm_pass)."')";
 							$resuilt_ins=mysqli_query($con,$query_ins);
 							printSqlErr($resuilt_ins,$con);	
 							echo"<script type='text/javascript'>alert('New admin has been added');</script>";
