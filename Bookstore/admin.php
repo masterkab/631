@@ -134,7 +134,8 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 			//print header of tabel
 			if ($num_rows_u>0){
 				while($row_array_u=mysqli_fetch_array($resuilt_u)){
-					if ($pass_check==$row_array_u['passwdhash']){
+					$thePasswdHash=crypt($pass_check,$row_array_u);
+					if ($thePasswdHash==$row_array_u['passwdhash']){
 						$_SESSION['admin']=$row_array_u['username'];
 						header ( "Location:adminafterlogin.php" );
 						
