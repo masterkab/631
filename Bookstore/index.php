@@ -30,7 +30,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 	<div id="tim_wrapper">
         <div id="tim_sidebar"> 
 			<div id="header">
-                <h1><a href="#"><img src="images/logo1.png" width="200px" height="100px" margin-left:"10px"; title="Tim Book Store" alt="#" /></a></h1>
+                <h1><a href="#"><img src="images/Logo1.png" width="200px" height="100px" margin-left:"10px"; title="Tim Book Store" alt="#" /></a></h1>
             </div> 
 
             <div id="menu">
