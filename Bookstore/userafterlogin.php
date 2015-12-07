@@ -2,7 +2,6 @@
 include 'dbconnect.php';
 include 'common.php';
 session_start ();
-$_SESSION['usern']='mcpherson';
 ob_start();
 if ($_SESSION ['usern'] == "") {
 	header ( "Location:index.php" );
