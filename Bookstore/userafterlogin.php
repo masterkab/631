@@ -43,8 +43,8 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
                 <ul class="navigation">
 				  <form	action="" method="post">
                    
-					<li><a class="menu_02"><button type="submit" class="menu_02" id="" name="register">Register</button></a></li>
-					<li><a class="menu_03"><button type="submit" class="menu_03" id="" name="admin">Admin</button></a></li>
+					<li><a class="menu_02"><button type="submit" class="" id="updateProfileButton" name="update_p">Update profile</button></a></li>
+					<li><a class="menu_03"><button type="submit" class="" id="pastOrdersButton" name="past_o">Past orders</button></a></li>
                                        
 				   </form>	
                 </ul>
@@ -73,7 +73,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
               <div class="panel" id="home">
                 <div class="content_section">
                   <h2>Welcome to Tim Book Store</h2>
-                  <img src="images/bookImage.png" alt="Image 01" width="150px" height="100px" class="image_wrapper image_fl" />
+                  <img src="images/bookImage.png" alt="Image 01" width="150px" height="60px" class="image_wrapper image_fl" />
                    <div class="content_section last_section">
                 	<div id="basket">
 			<form class="" action="checkout.php" method="post" id="basket_form">

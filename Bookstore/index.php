@@ -11,7 +11,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 <title>The Tim Book Store</title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
-<link href="tim_style.css" rel="stylesheet" type="text/css" />
+<link href="css/tim_style.css" rel="stylesheet" type="text/css" />
 
 <link rel="stylesheet" href="css/coda-slider.css" type="text/css" charset="utf-8" />
 <link rel="stylesheet" href="css/table.css" type="text/css" />
@@ -67,7 +67,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
               <div class="panel" id="home">
                 <div class="content_section">
                   <h2>Welcome to Tim Book Store</h2>
-                  <img src="images/bookImage.png" alt="Image 01" width="150px" height="100px" class="image_wrapper image_fl" />
+                  <img src="images/bookImage.png" alt="Image 01" width="150px" height="60px" class="image_wrapper image_fl" />
                    <div class="content_section last_section">
                 	<div class="loginform">
                 		<p><h2>Login Here</h2></p>
@@ -85,33 +85,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
                 </div>
 				
                 
-		<!-- <div id="login">
-			<form class="" action="" method="post" id="login">
-				<label>Username:</label> 
-				<input type="text" id="login_id" placeholder="Enter username" name="login_user"> </br>
-				<label>Password:</label> 
-				<input type="password" name="login_pass" id="login_pwd" placeholder="Enter password"></br>
-				<button type="submit" class="" id="buttonOne" name="login">Login</button>
-				<button type="submit" class="" id="buttonTwo" name="register">Register</button>
-				<button type="submit" class="" id="buttonThree" name="admin">Admin</button>
-			</form>
-		</div>
-	</div>
-	
-	<div id="search">
-		<h3>Search Book</h3>
-		<form action="" method="post">
-				<div  class="">
-					<input type="text" class="" id="search_id" name="tosearch" placeholder="search book">
-				</div>				
-					<label><input type="radio" name="search_r" value="author">Author</label>								
-					<label><input type="radio" name="search_r" value="title">Title</label>								
-					<label><input type="radio" name="search_r" value="isbn">ISBN</label>				
-								
-				<div class="">
-					<button type="submit" class="" id="searchButton" name="search_b">Search</button>
-				</div>
-		</form> -->
+		
 	
 	<div id="res_op">
 		
