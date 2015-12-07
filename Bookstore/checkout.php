@@ -47,7 +47,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
             </div>
             <div class="search">
 		<h3>Search Book</h3>
-		<form action="" method="post">
+		<form action="userafterlogin.php" method="post">
 				<div  class="searchbook">
 					<input type="text" class="" id="search_id" name="tosearch" placeholder="search book">
 				</div>				
@@ -72,7 +72,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
                   <img src="images/bookImage.png" alt="Image 01" width="150px" height="100px" class="image_wrapper image_fl" />
                    <div class="content_section last_section">
                 	<div id="basket">
-			<form class="" action="" method="post" id="basket_form">
+			<form class="" action="checkout.php" method="post" id="basket_form">
 				<label>Cart=</label> 
 				<output type="text" id="cart" name="cartn" ><?=getCountOfItemsInBasket($con)?> </output></br>
 				<button type="submit" class=""  id="checkoutButton" name="checkout">Checkout</button>
@@ -80,7 +80,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 		
 		</div>
 		<div id="logout">
-			<form class="" action="" method="post" id="login">
+			<form class="" action="userafterlogin.php" method="post" id="login">
 				<label>Welcome! <?php $username=$_SESSION['usern'];echo $username; ?></label></br>
 				<button type="submit" class="" name="logout" id="logOutButton">Logout</button>
 				<button type="submit" class="" name="update_p" id="updateProfileButton">Update profile</button>
