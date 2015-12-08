@@ -67,7 +67,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
               <div class="panel" id="home">
                 <div class="content_section">
                   <h2>Welcome to Tim Book Store</h2>
-                  <img src="images/bookImage.png" alt="Image 01" width="150px" height="60px" class="image_wrapper image_fl" />
+                  <img src="images/bookImage.png" alt="Image 01" width="150px" height="80px" class="image_wrapper image_fl" />
                    <div class="content_section last_section">
                 	<div class="loginform">
                 		<p><h2>Login Here</h2></p>
