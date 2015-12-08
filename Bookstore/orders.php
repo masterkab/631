@@ -11,6 +11,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 	<title>Tim Bookstore</title>
 	<meta charset="utf-8"/>
 	<link rel="stylesheet" type="text/css"	href="css/bookstore.css">
+	<link rel="stylesheet" href="css/table.css" type="text/css" />
 	
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 	<script type="text/javascript">
@@ -39,7 +40,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 				<label>Admin! <?php $username=$_SESSION['admin'];echo $username; ?></label></br>
 				<button type="submit" class="" name="logout" id="logOutButton">Logout</button>
 				<button type="submit" class="" name="main" id="AdminButton">Admin</button>
-				<button type="submit" class="" name="" id="listOrdersButton">List orders</button>
+				<button type="submit" class="" name="lorders" id="listOrdersButton">List orders</button>
 				<button type="submit" class="" name="order_o" id="openOrdersButton">Open Orders</button>				
 				<button type="submit" class="" name="order_it" id="orderItemsButton">Order Items</button>
 				<button type="submit" class="" name="litems" id="listItemsButton">List Items</button>

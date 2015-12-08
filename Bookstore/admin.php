@@ -77,41 +77,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 											</form>
 										</div>
 									</div>
-	<!--<div class="" id="head" >
-		<div class="" id="title">
-			<h3>Tim Bookstore</h3>
-		</div>
-		
-		<div id="login">
-			<form class="" action="" method="post" id="login">
-				<label>Admin Username:</label> 
-				<input type="text" id="login_id" placeholder="Enter username" name="login_user"> </br>
-				<label>Admin Password:</label> 
-				<input type="password" name="login_pass" id="login_pwd" placeholder="Enter password"></br>
-				<button type="submit" class="" id="buttonOne" name="login">Login</button>
-				<button type="submit" class="" id = "mainButton" name="main">Main</button>
-				
-			</form>
-		</div>
-		
-			
-	</div>
 	
-	<div id="search">
-		<h3>Search Book</h3>
-		<form action="" method="post">
-				<div  class="">
-					<input type="text" class="" id="search_id" name="tosearch" placeholder="search book">
-				</div>				
-					<label><input type="radio" name="search_r" value="author">Author</label>								
-					<label><input type="radio" name="search_r" value="title">Title</label>								
-					<label><input type="radio" name="search_r" value="isbn">ISBN</label>				
-								
-				<div class="">
-					<button type="submit" class="" id="buttonFive" name="search_b">Search</button>
-				</div>
-		</form>
-	</div>-->
 	<div id="res_op">
 		
 <?php
