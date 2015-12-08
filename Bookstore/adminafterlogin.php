@@ -12,6 +12,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 	<title>Tim Bookstore</title>
 	<meta charset="utf-8"/>
 	<link rel="stylesheet" type="text/css"	href="css/bookstore.css">
+	<link rel="stylesheet" href="css/table.css" type="text/css" />
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 	<script type="text/javascript">
 		

@@ -15,8 +15,8 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="" />
 <meta name="description" content="" />
-<link href="tim_style.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" type="text/css"	href="css/bookstore.css">
+<link href="css/tim_style.css" rel="stylesheet" type="text/css" />
+
 <link rel="stylesheet" href="css/coda-slider.css" type="text/css" charset="utf-8" />
 <link rel="stylesheet" href="css/table.css" type="text/css" />
 
@@ -39,8 +39,8 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
                 <ul class="navigation">
 				  <form	action="" method="post">
                    
-					<li><a class="menu_02"><button type="submit" class="menu_02" id="" name="register">Register</button></a></li>
-					<li><a class="menu_03"><button type="submit" class="menu_03" id="" name="admin">Admin</button></a></li>
+					<li><a class="menu_02"><button type="submit" class="menu_02" id="updateProfileButton" name="update_p">Update profile</button></a></li>
+					<li><a class="menu_03"><button type="submit" class="menu_03" id="pastOrdersButton" name="past_o">Past orders</button></a></li>
                                        
 				   </form>	
                 </ul>
