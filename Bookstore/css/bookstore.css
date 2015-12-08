@@ -29,11 +29,7 @@
     //float:left;
     
 }
-#cart{
-    background-color: aliceblue;
-    border-style: solid;
-    white-space: pre;
-}
+
 
 /* from http://stackoverflow.com/questions/2906582/how-to-create-an-html-button-that-acts-like-a-link */
 a.button {

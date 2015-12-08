@@ -15,8 +15,8 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="" />
 <meta name="description" content="" />
-<link href="tim_style.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" type="text/css"	href="css/bookstore.css">
+<link href="css/tim_style.css" rel="stylesheet" type="text/css" />
+
 <link rel="stylesheet" href="css/coda-slider.css" type="text/css" charset="utf-8" />
 <link rel="stylesheet" href="css/table.css" type="text/css" />
 
