@@ -55,7 +55,18 @@ html {
 	height: 100%;	
 	padding: 30px 20px 10px 0;
 }
-
+#cart{
+    background-color: aliceblue;
+    border-style: solid;
+    white-space: pre;
+}
+#basket{
+    //position:absolute;
+    //right: 0;
+    float: right;
+    text-align: right;
+    padding-right: 50px;
+}
 .content_section {
 	margin-bottom: 30px;
 	padding-bottom: 30px;
