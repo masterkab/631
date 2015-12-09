@@ -262,7 +262,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 			$orderDate=date('Y-m-d');
 			$sqlStmt="INSERT INTO orders (ordernumber,username,orderdate,orderstatus,orderitems,ordertotal) VALUES('".
 				$curOrderNum."','".$_SESSION['usern']."','".
-				$orderDate."','C','".$orderArray['orderitems'].
+				$orderDate."','c','".$orderArray['orderitems'].
 				"','".$orderArray['ordertotal']."')";
 				$sqlCmd=$con->prepare($sqlStmt);
 				if($result=mysqli_stmt_execute($sqlCmd)) {
