@@ -65,7 +65,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 					
 				</div >
 				<div  class="o_s">
-					<input id="search_input" type="text" class=""  name="tosearch" placeholder="search book">
+					<input id="search_input" type="text" class=""  name="tosearch" placeholder="search orders">
 					<label><input type="checkbox" name="search_c" value="itemc">Items</label>	
 					</br>		
 					<label><input type="radio" name="search_r" value="ordernumber">Order no.</label>								
@@ -75,6 +75,9 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 					</br>
 					<button type="submit" class="" id="searchButton" name="search_b">Search</button>
 				</div>
+				<div>
+			<img src="images/bookImage.png" alt="Image 01" width="150px" height="60px" class="image_wrapper image_fl" />
+		</div>
 		</form>
 	</div>
 	<div id="res_op">

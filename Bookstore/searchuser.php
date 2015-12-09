@@ -39,7 +39,9 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 				<button type="submit" class="" name="luser" id="listUsersButton">List users</button>
 			</form>
 		</div>
-		
+		<div>
+			<img src="images/bookImage.png" alt="Image 01" width="150px" height="60px" class="image_wrapper image_fl" />
+		</div>
 			
 	</div>
 	
@@ -52,7 +54,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 					<label><input type="radio" name="search_r" id="usernameId"value="username">Username</label>								
 					<label><input type="radio" name="search_r" id="firstnameId"value="firstname">First Name</label>								
 					<label><input type="radio" name="search_r" id="familynameId" value="lastname">Family Name</label>				
-					<label><input type="radio" name="search_r" id="phoneId" value="phone">Phone</label>			
+					<label><input type="radio" name="search_r" id="phoneId" value="telephone">Phone</label>			
 				<div class="">
 					<button type="submit" class="" id="searchButton" name="search_u">Search</button>
 				</div>

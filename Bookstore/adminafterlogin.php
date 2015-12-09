@@ -25,6 +25,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 		function book_inv()	{
 			document.getElementsByClassName('q_b')[0].style.display = "inline";
 			document.getElementsByClassName('s_r')[0].style.display = "none";
+			$("#res_op").empty();
 		}
 						
 							
@@ -43,11 +44,15 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 				<button type="submit" class="" name="enter_pass" id="changePasswordButton">Change password</button>
 				<button type="submit" class="" name="add_admin" id="addAdminButton">Add admin</button>				
 				<button type="submit" class="" name="update_u" id="usersStatusButton">Users status</button>
-				<button type="submit" class="" name="add_book" id="addBookButton">Add Book</button>				
+				<button type="submit" class="" name="add_book" id="addBookButton">Add Book</button>	
+				<button type="submit" class="" name="lbook" id="lbook">List Books</button>		
 				<button type="submit" class="" name="orders" id="ordersButton">Orders</button>
 				<button type="button" class="" onclick="book_inv();" id="bookInventoryButton">Book Inventory</button>
 			</form>
 				
+		</div>
+		<div>
+			<img src="images/bookImage.png" alt="Image 01" width="150px" height="60px" class="image_wrapper image_fl" />
 		</div>
 			
 	</div>
@@ -148,6 +153,66 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 			echo "<script type='text/javascript'>alert('Please Select field to Search and Enter Text to search');</script>";
 		}
 	}
+	//-------------------
+	if (isset ( $_POST ['lbook'] )) {
+		
+			
+			$query="SELECT * FROM books";
+			
+			$resuilt=mysqli_query($con,$query);
+			printSqlErr($resuilt,$con);
+			
+			$num_rows=mysqli_num_rows($resuilt);
+			
+			//print header of tabel
+			if ($num_rows>0){
+								
+				echo'<h3>List Books:</h3>
+					<table align="center">
+					
+					
+					<tr align="left">
+						<th width="150px">Image</th>
+						<th width="150px">Title</th>
+						<th width="150px">Author</th>
+						<th width="150px">ISBN</th>
+						<th width="150px">Publisher</th>
+						<th width="150px">Quantity</th>
+						<th width="150px">Price</th>
+					</tr>
+					
+					';
+				
+				while($row_array=mysqli_fetch_array($resuilt)){
+					//echo '<col width="64px">';
+					echo '<tr width="150px"><td><img width="64px" height="128px" src="/bookstore/img/' . $row_array['imageurl'] . '"/></td>';
+					echo '<td width="150px">' . $row_array ['title'] . '</td>
+						  <td width="150px">' . $row_array ['author'] . '</td>
+						  <td width="150px">' . $row_array ['isbn'] . '</td>
+						  <td width="150px">' . $row_array ['supplier'] . '</td>
+						  <td width="150px">' . $row_array ['quantity'] . '</td>
+						  <td width="150px">' . $row_array ['price'] . '</td>
+					      </br>';
+					
+					echo '<td>';
+					//echo '<input name="editbook" type="button" value="Edit Book" id='.$row_array ['isbn'].' onclick="editBook(this.id);">';
+					echo '<form action="" method="post"><button name="editbook" type="submit"	id='.$row_array ['isbn'].' onclick="editBook(this.id);">Edit Book</button></form>';
+					//echo '<form action="" method="post"><button name="editbook" type="submit">Edit last book</button></form>';
+					echo '</td></tr>';
+						
+					
+				}				
+				echo'';				
+				echo' ';
+				//echo '<form action="" method="post"><button name="editbook" type="submit">Edit last book</button></form>';
+            }
+			else {
+				print "There were no such rows in the tabel <br/>";
+			}
+			print "</table>";
+			
+		}
+	
 	//
 	//----------------------------------------------------------------------------------------------------------	
 	else if (isset($_POST['Search_q'])){
