@@ -123,7 +123,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 				
 				while($row_array=mysqli_fetch_array($resuilt)){
 					//echo '<col width="64px">';
-					echo '<tr width="150px"><td><img width="64px" height="128px" src="/bookstore/img/' . $row_array['imageurl'] . '"/></td>';
+					echo '<tr width="150px"><td><img width="64px" height="128px" src="img/' . $row_array['imageurl'] . '"/></td>';
 					echo '<td width="150px">' . $row_array ['title'] . '</td>
 						  <td width="150px">' . $row_array ['author'] . '</td>
 						  <td width="150px">' . $row_array ['isbn'] . '</td>

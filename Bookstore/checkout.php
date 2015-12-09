@@ -119,7 +119,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 <?php
 	//--------------------------------------------------------------------------------------------------
 	if(!(isset($_GET['doCheck'])|| (isset($_GET['doFinalize'])))) {
-		echo "<b>Your shopping cart contains the fillowing items:</b><br>";
+		echo "<b>Your shopping cart contains the following items:</b><br>";
 		$sqlStmt="SELECT carts.itemqty,carts.itemno,books.* FROM carts INNER JOIN books ON carts.itemisbn=books.isbn WHERE username='".$_SESSION['usern']."' ORDER BY title";
 		$result=mysqli_query($con,$sqlStmt);
 		if($result->num_rows==0) { // empty cart

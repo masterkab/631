@@ -258,8 +258,8 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 	function registerForm(){
 		echo' <form class="formdesign" action="" method="post">
 			  <h4>Register new user	:</h4>
-			  <label>Frist name		:</label> 
-			  <input type="text" id="" placeholder="Enter frist name" name="register_fname"> </br>
+			  <label>First name		:</label> 
+			  <input type="text" id="" placeholder="Enter first name" name="register_fname"> </br>
 			  <label>Family name	:</label> 
 			  <input type="text" id="" placeholder="Enter family name" name="register_lname"> </br>
 			  <label>Username		:</label> 
@@ -268,8 +268,8 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 			  <input type="text" id="" placeholder="email@booksore.com" name="register_email"> </br>
 			  <label>Password:</label> 
 			  <input type="password" id="" placeholder="8 character and numeric" name="register_pass"> </br>
-			  <label>Reenter Password:</label> 
-			  <input type="password" id="" placeholder="renenter password" name="register_rpass"> </br>
+			  <label>Re-enter Password:</label> 
+			  <input type="password" id="" placeholder="re-enter password" name="register_rpass"> </br>
 			  <label>Address:</label> 
 			  <input type="text" id="" placeholder="ex:2332 twin ford street" name="register_address"> </br>
 			  <label>City:</label> 

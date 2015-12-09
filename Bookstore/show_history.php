@@ -136,7 +136,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 	<div id="res_op">
 		
 	<b>Thank you for your business!</b><br>
-	Your order history:<br>
+	Your order history:<br><br>
 <?php
 	//--------------------------------------------------------------------------------------------------
 
@@ -154,13 +154,10 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 			switch ($row_array['orderstatus']) {
 				case "o":
 				case "O":	echo "Open<br>\n";
-						break;
-				case "c":
-				case "C":	echo "Completed\n";
 						$orderCanBeCancelled=true;
 						break;
-				case "x":
-				case "X":	echo "Cancelled<br>\n";
+				case "c":
+				case "C":	echo "Cancelled\n";
 						break;
 				case "d":
 				case "D":	echo "Shipped<br>\n";
