@@ -1,7 +1,6 @@
 <?php
 include 'dbconnect.php';
 session_start ();
-ob_start();
 if ($_SESSION ['admin'] == "") {
 	header ( "Location:admin.php" );
 }
@@ -9,26 +8,10 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 ?>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>Tim Bookstore</title>
-	<meta name="keywords" content="" />
-<meta name="description" content="" />
+	<meta charset="utf-8"/>
 	<link rel="stylesheet" type="text/css"	href="css/bookstore.css">
-	
-<link rel="stylesheet" href="css/coda-slider.css" type="text/css" charset="utf-8" />
-<link rel="stylesheet" href="css/table.css" type="text/css" />
-
-<script src="js/jquery-1.2.6.js" type="text/javascript"></script>
-<script src="js/jquery.scrollTo-1.3.3.js" type="text/javascript"></script>
-<script src="js/jquery.localscroll-1.2.5.js" type="text/javascript" charset="utf-8"></script>
-<script src="js/jquery.serialScroll-1.2.1.js" type="text/javascript" charset="utf-8"></script>
-<!--<script src="js/coda-slider.js" type="text/javascript" charset="utf-8"></script>-->
-<script src="js/jquery.easing.1.3.js" type="text/javascript" charset="utf-8"></script>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-	
-	<!-- import Jquery for AJAX -->
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
-	<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script> 
+	<link rel="stylesheet" href="css/table.css" type="text/css" />
 	
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 	<script type="text/javascript">
@@ -47,23 +30,17 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 	
 </head>
 <body>
+	
 	<div class="" id="head">
-		<div id="slider">
-	<div id="tim_wrapper">
-         <div id="tim_sidebar"> 
-			<div id="header">
-                <h1><a href="#"><img src="images/Logo1.png" width="200px" height="100px" margin-left:"10px"; title="Tim Book Store" alt="#" /></a></h1>
-            </div> 
-
-           
-            </div>
+		<div class="">
+			<h3>Tim Bookstore</h3>
 		
 		<div id="logout">
 			<form class="" action="" method="post" id="login">
 				<label>Admin! <?php $username=$_SESSION['admin'];echo $username; ?></label></br>
 				<button type="submit" class="" name="logout" id="logOutButton">Logout</button>
 				<button type="submit" class="" name="main" id="AdminButton">Admin</button>
-				<button type="submit" class="" name="" id="listOrdersButton">List orders</button>
+				<button type="submit" class="" name="lorders" id="listOrdersButton">List orders</button>
 				<button type="submit" class="" name="order_o" id="openOrdersButton">Open Orders</button>				
 				<button type="submit" class="" name="order_it" id="orderItemsButton">Order Items</button>
 				<button type="submit" class="" name="litems" id="listItemsButton">List Items</button>
@@ -71,11 +48,13 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 			</form>
 		</div>
 		
-		
+			
+	</div> 
+	
 	<div id="search">
-		<h3>Search Order </h3>
+		<h3>Search Order</h3>
 		<form action="" method="post">
-					<div  class="o_d" style="display:none">
+				<div  class="o_d" style="display:none">
 					<strong  style="">Order Date From:</strong>
 					<input  type="date" dateformat="d M y" class=""  id="fromDate_Id" name="fromdate" placeholder="">
 					<strong  style="">To:</strong>
@@ -83,21 +62,21 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 					<label><input type="checkbox" name="search_cd" value="itemc">Items</label>	
 					</br>
 					<button type="submit" class="" id="searchButton" name="Search_d">Search</button>
-					</div>
 					
-					
-                <div  class="searchbook">
-					<input type="text" class="" id="search_id" name="tosearch" placeholder="search book">
-				</div>				
-						<label><input type="radio" name="search_r" value="ordernumber">Order no.</label>								
-					<label><input type="radio" name="search_r" value="username">Username</label>										
-					<label><input type="radio" name="search_r" value="orderstatus">Order status</label>		
-				<div class="">
-					<button type="submit" class="" id="searchButton" name="search_u">Search</button>
+				</div >
+				<div  class="o_s">
+					<input id="search_input" type="text" class=""  name="tosearch" placeholder="search book">
+					<label><input type="checkbox" name="search_c" value="itemc">Items</label>	
+					</br>		
+					<label><input type="radio" name="search_r" value="ordernumber">Order no.</label>								
+					<label><input type="radio" name="search_r" value="username">Username</label>								
+									
+					<label><input type="radio" name="search_r" value="orderstatus">Order stauts</label>			
+					</br>
+					<button type="submit" class="" id="searchButton" name="search_b">Search</button>
 				</div>
 		</form>
 	</div>
-	
 	<div id="res_op">
 		
 <?php

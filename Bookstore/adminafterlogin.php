@@ -9,21 +9,10 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 ?>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>Tim Bookstore</title>
-	<meta name="keywords" content="" />
-<meta name="description" content="" />
+	<meta charset="utf-8"/>
 	<link rel="stylesheet" type="text/css"	href="css/bookstore.css">
-	
-<link rel="stylesheet" href="css/coda-slider.css" type="text/css" charset="utf-8" />
-<link rel="stylesheet" href="css/table.css" type="text/css" />
-
-<script src="js/jquery-1.2.6.js" type="text/javascript"></script>
-<script src="js/jquery.scrollTo-1.3.3.js" type="text/javascript"></script>
-<script src="js/jquery.localscroll-1.2.5.js" type="text/javascript" charset="utf-8"></script>
-<script src="js/jquery.serialScroll-1.2.1.js" type="text/javascript" charset="utf-8"></script>
-<!--<script src="js/coda-slider.js" type="text/javascript" charset="utf-8"></script>-->
-<script src="js/jquery.easing.1.3.js" type="text/javascript" charset="utf-8"></script>
+	<link rel="stylesheet" href="css/table.css" type="text/css" />
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 	<script type="text/javascript">
 		
@@ -42,69 +31,17 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 	</script>
 </head>
 <body>
+	
 	<div class="" id="head">
-		<div id="slider">
-	<div id="tim_wrapper">
-         <div id="tim_sidebar"> 
-			<div id="header">
-                <h1><a href="#"><img src="images/Logo1.png" width="200px" height="100px" margin-left:"10px"; title="Tim Book Store" alt="#" /></a></h1>
-            </div> 
-
-            <div id="menu">
-                <ul class="navigation">
-				  <form	action="" method="post">
-					<li><a class="menu_03"><button type="submit" class="menu_03" id="" name="admin">Admin</button></a></li>
-                                       
-				   </form>	
-                </ul>
-            </div>
-            <div class="search">
-		<h3>Search Book</h3>
-		<form action="" method="post">
-				<div  class="searchbook">
-					<input type="text" class="" id="search_id" name="tosearch" placeholder="search book">
-				</div>
-					<p><label><input type="radio" name="search_r" value="author">Author</label>								
-					<label><input type="radio" name="search_r" value="title">Title</label>								
-					<label><input type="radio" name="search_r" value="isbn">ISBN</label>
-					<label><input type="radio" name="search_r" value="quantity">Quantity</label></p>				
-								
-				<div class="submitsearch">
-					<button type="submit" class="" id="searchButton" name="search_b">Search</button>
-				</div>		
-					
-					
-		</form>
-		<form action="" method="post">
-		<div  class="q_b" style="display:none">
-					<strong  style="">Quantity From:</strong>
-					<input id="quantityFrom_Id" type="text" class=""  name="fromqty" placeholder="">
-					<strong  style="">To:</strong>
-					<input id="quantityTo_Id" type="text" class=""  name="toqty" placeholder="">
-					</br>
-					<button type="submit" class="" id="searchButton" name="search_b">Search</button>
-				</div >
-				</form>
-				
-	</div>
-
-            		</div>
-		<div id="content">
-          <div class="scroll">
-            <div class="scrollContainer">
-              <div class="panel" id="home">
-                <div class="content_section">
-                  <h2>Welcome to Tim Book Store</h2>
-                  <img src="images/bookImage.png" alt="Image 01" width="150px" height="100px" class="image_wrapper image_fl" />
-                   <div class="content_section last_section">
+		<div class="">
+			<h3>Tim Bookstore</h3>
+		
 		<div id="logout">
 			<form class="" action="" method="post" >
-				<div>
-				<label>Admin! <?php $username=$_SESSION['admin'];echo $username; ?> <button type="submit" class="" name="logout" id="logOutButton" style="margin-left: 242px">Logout</button>
-				<button type="submit" class="" name="enter_pass" id="changePasswordButton">Change password</button></label></br>
-				
-				</div></br>
-				<button type="submit" class="" name="add_admin" id="addAdminButton" style="margin-left: 80px">Add admin</button>				
+				<label>Admin! <?php $username=$_SESSION['admin'];echo $username; ?></label></br>
+				<button type="submit" class="" name="logout" id="logOutButton">Logout</button>
+				<button type="submit" class="" name="enter_pass" id="changePasswordButton">Change password</button>
+				<button type="submit" class="" name="add_admin" id="addAdminButton">Add admin</button>				
 				<button type="submit" class="" name="update_u" id="usersStatusButton">Users status</button>
 				<button type="submit" class="" name="add_book" id="addBookButton">Add Book</button>				
 				<button type="submit" class="" name="orders" id="ordersButton">Orders</button>
@@ -112,7 +49,33 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 			</form>
 				
 		</div>
-			</div>
+			
+	</div>
+	
+	<div id="search">
+		<h3>Search Book</h3>
+		<form action="" method="post">
+				<div  class="q_b" style="display:none">
+					<strong  style="">Quantity From:</strong>
+					<input id="quantityFrom_Id" type="text" class=""  name="fromqty" placeholder="">
+					<strong  style="">To:</strong>
+					<input id="quantityTo_Id" type="text" class=""  name="toqty" placeholder="">
+					</br>
+					<button type="submit" class="" id="searchButton" name="Search_q">Search</button>
+					
+				</div >
+				<div class="s_r">
+					<input id="search_input" type="text" class=""  name="tosearch" placeholder="search book">
+					</br>
+					<label><input type="radio" name="search_r" value="author">Author</label>								
+					<label><input type="radio" name="search_r" value="title">Title</label>								
+					<label><input type="radio" name="search_r" value="isbn">ISBN</label>				
+					<label><input type="radio" name="search_r" value="quantity">Quantity</label>			
+					</br>
+					<button type="submit" class="" id="searchButton" name="search_b">Search</button>
+				</div>
+		</form>
+	</div>
 	<div id="res_op">
 		
 <?php
