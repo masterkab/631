@@ -161,7 +161,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 			}		
 		}
 		else{
-			print "There were no such rows in the table <br/>";
+			print "There were no such rows in the tabel <br/>";
 			}
 		print "</table>";
 	 }
@@ -182,7 +182,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 			
 			$num_rows=mysqli_num_rows($resuilt);
 			
-			//print header of table
+			//print header of tabel
 			if ($num_rows>0){
 				echo'	<h3>List search resuilts for orders:</h3>';				
 				echo'
@@ -225,7 +225,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 				//echo '<form action="" method="post"><button name="editbook" type="submit">Edit last book</button></form>';
             }
 			else {
-				print "There were no such rows in the table <br/>";
+				print "There were no such rows in the tabel <br/>";
 			}
 			//print "</table>";
 			
@@ -236,7 +236,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 	//
 	//----------------------------------------------------------------------------------------------------------	
 	else if (isset($_POST['lorders'])){
-		$query_o="SELECT * FROM orders ORDER BY ordernumber";			
+		$query_o="SELECT * FROM orders";			
 		$resuilt_o=mysqli_query($con,$query_o);
 		printSqlErr($resuilt_o,$con);			
 		$num_rows_o=mysqli_num_rows($resuilt_o);
@@ -279,14 +279,14 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 			}		
 		}
 		else{
-			print "There were no such rows in the table <br/>";
+			print "There were no such rows in the tabel <br/>";
 			}
 		print "</table>";
 	}
 	//
 	//----------------------------------------------------------------------------------------------------------	
 	else if (isset($_POST['litems'])){
-		$query_o="SELECT * FROM items ORDER BY ordernumber,itemno";			
+		$query_o="SELECT * FROM items";			
 		$resuilt_o=mysqli_query($con,$query_o);
 		printSqlErr($resuilt_o,$con);			
 		$num_rows_o=mysqli_num_rows($resuilt_o);
@@ -318,7 +318,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 			}
 		}
 		else{
-			print "There were no such rows in the table <br/>";
+			print "There were no such rows in the tabel <br/>";
 			}
 		print "</table>";
 	}
@@ -368,7 +368,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 			}		
 		}
 		else{
-			print "There were no such rows in the table <br/>";
+			print "There were no such rows in the tabel <br/>";
 			}
 		print "</tobody></table>";
 				
@@ -449,7 +449,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 			echo'<tr></tr>';	
 		}
 		else{
-			print "There were no such rows in the table <br/>";
+			print "There were no such rows in the tabel <br/>";
 			}
 		print "</table>";
 	}
@@ -527,7 +527,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 			}		
 		}
 		else{
-			print "There were no such rows in the table <br/>";
+			print "There were no such rows in the tabel <br/>";
 			}
 		print "</table>";
 	 }
@@ -548,7 +548,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 			
 			$num_rows=mysqli_num_rows($resuilt);
 			
-			//print header of table
+			//print header of tabel
 			if ($num_rows>0){
 				echo'	<h3>List search resuilts for orders:</h3>';				
 				echo'
@@ -593,7 +593,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 				//echo '<form action="" method="post"><button name="editbook" type="submit">Edit last book</button></form>';
             }
 			else {
-				print "There were no such rows in the table <br/>";
+				print "There were no such rows in the tabel <br/>";
 			}
 			print "</table>";
 			
