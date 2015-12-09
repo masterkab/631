@@ -154,10 +154,13 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 			switch ($row_array['orderstatus']) {
 				case "o":
 				case "O":	echo "Open<br>\n";
-						$orderCanBeCancelled=true;
 						break;
 				case "c":
-				case "C":	echo "Cancelled\n";
+				case "C":	echo "Completed\n";
+						$orderCanBeCancelled=true;
+						break;
+				case "x":
+				case "X":	echo "Cancelled<br>\n";
 						break;
 				case "d":
 				case "D":	echo "Shipped<br>\n";
