@@ -19,6 +19,7 @@ $r_user=$r_address=$r_ccexpdate=$r_ccnumber=$r_cctype=$r_city=$r_email=$r_fname=
 
 <link rel="stylesheet" href="css/coda-slider.css" type="text/css" charset="utf-8" />
 <link rel="stylesheet" href="css/table.css" type="text/css" />
+<link rel="stylesheet" href="css/bookstore.css" type="text/css" />
 
 <!--<script src="js/coda-slider.js" type="text/javascript" charset="utf-8"></script>-->
 <script src="js/jquery.easing.1.3.js" type="text/javascript" charset="utf-8"></script>
