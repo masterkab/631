@@ -7,7 +7,7 @@ session_start();
 if ($_SESSION['usern'] != '') { // Is a user logged in?
 	if((isset($_POST['orderno']) && !empty($_POST['orderno']))) {
 		// cancel the order
-		$sqlStr="UPDATE orders SET orderstatus='x' WHERE ordernumber='".$_POST['orderno']."'";
+		$sqlStr="UPDATE orders SET orderstatus='c' WHERE ordernumber='".$_POST['orderno']."'";
 		$sqlStmt=$con->prepare($sqlStr);
 		if($result=mysqli_stmt_execute($sqlStmt)==1) {
 			$retVal=true;
